@@ -14,6 +14,7 @@ export function ShowcasePiece({ title, descriptions, href, img }: ShowcasePieceP
       <div className="flex gap-4 rounded-md p-6">
         <Image
           className="object-contain"
+          unoptimized
           src={img}
           width={300}
           height={160}
