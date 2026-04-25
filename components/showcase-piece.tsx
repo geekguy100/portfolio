@@ -11,8 +11,14 @@ export interface ShowcasePieceProps {
 export function ShowcasePiece({ title, descriptions, href, img }: ShowcasePieceProps) {
   return (
     <Link href={href}>
-      <div className="flex gap-2 rounded-md p-6">
-        <Image src={img} width={300} height={160} alt={`Thumbnail for content titled "${title}"`} />
+      <div className="flex gap-4 rounded-md p-6">
+        <Image
+          className="object-contain"
+          src={img}
+          width={300}
+          height={160}
+          alt={`Thumbnail for content titled "${title}"`}
+        />
         <div className="flex flex-col gap-2">
           <h3>{title}</h3>
           {descriptions.map((desc, i) => (
