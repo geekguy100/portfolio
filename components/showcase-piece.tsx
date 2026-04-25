@@ -1,14 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
 
-export interface ContentCardProps {
+export interface ShowcasePieceProps {
   title: string
   descriptions: string[]
   href: string
   img: string
 }
 
-export function ShowcaseCard({ title, descriptions, href, img }: ContentCardProps) {
+export function ShowcasePiece({ title, descriptions, href, img }: ShowcasePieceProps) {
   return (
     <Link href={href}>
       <div className="flex gap-2 rounded-md p-6">

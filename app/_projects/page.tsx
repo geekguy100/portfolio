@@ -1,16 +1,13 @@
-import { ShowcaseCard } from "@/components/showcase-card"
+import { ShowcasePiece } from "@/components/showcase-piece"
+import { ShowcaseSection } from "@/components/showcase-section"
 import { content } from "@/misc/showcase.json"
 
 export default function Projects() {
   return (
-    <div className="flex flex-col gap-2" id="projects">
-      <div className="text-center">
-        <h3>Projects</h3>
-        <p>The larger projects I worked on throughout my career</p>
-      </div>
+    <ShowcaseSection id="projects" title="Projects" description="The larger projects I worked on throughout my career">
       {content.map((piece) => (
-        <ShowcaseCard key={piece.href} {...piece} />
+        <ShowcasePiece key={piece.href} {...piece} />
       ))}
-    </div>
+    </ShowcaseSection>
   )
 }

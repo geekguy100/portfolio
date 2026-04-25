@@ -4,6 +4,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 import { NavigationBar } from "@/components/layout/nav-bar"
+import { SiteHeader } from "@/components/layout/header"
 
 const roboto = Roboto({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -25,11 +26,7 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>
-          <header className="bg-gray-500">
-            <h1>Kyle Grenier</h1>
-            <p>Immersive Technology and Game Developer</p>
-          </header>
-          <NavigationBar />
+          <SiteHeader />
           <main>{children}</main>
         </ThemeProvider>
       </body>
