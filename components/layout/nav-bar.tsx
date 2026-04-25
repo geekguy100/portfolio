@@ -2,7 +2,7 @@ import { ButtonGroup } from "../ui/button-group"
 import { NavigationButton } from "./nav-button"
 
 const routes = [
-  { href: "#", title: "Home" },
+  { href: "#aboutme", title: "Home" },
   { href: "#projects", title: "Projects" },
 ]
 
