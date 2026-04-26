@@ -1,32 +1,33 @@
 import { BlocksIcon, CogIcon, TvIcon } from "lucide-react"
 import { NavigationButton } from "./layout/nav-button"
-import { GitHubIcon } from "./brand-icons"
+import { GitHubIcon, ItchIoIcon } from "./brand-icons"
+import Image from "next/image"
 import type { ReactNode } from "react"
 
 interface SocialProps {
   href: string
   icon: ReactNode
-  alt: string
+  title: string
 }
 const socials: SocialProps[] = [
   {
     href: "https://github.com/geekguy100",
-    alt: "GitHub Profile",
+    title: "GitHub Profile",
     icon: <GitHubIcon className="size-7" />,
   },
   {
     href: "https://github.com/geekguy1003",
-    alt: "GitHub Profile",
-    icon: <BlocksIcon />,
+    title: "Itch.io Profile",
+    icon: <Image fill src="/itchio.png" alt="Itch.io profile" className="scale-50 rounded-lg" />,
   },
   {
     href: "https://github.com/geekguy10021",
-    alt: "GitHub Profile",
+    title: "GitHub Profile",
     icon: <TvIcon />,
   },
   {
     href: "https://github.com/geekguy1002",
-    alt: "GitHub Profile",
+    title: "GitHub Profile",
     icon: <CogIcon />,
   },
 ]
@@ -35,9 +36,14 @@ export function SocialGrid() {
   return (
     <div className="flex items-center">
       <div className="grid grid-cols-2 gap-4">
-        {socials.map(({ icon, alt, href }) => {
+        {socials.map(({ icon, ...props }) => {
           return (
-            <NavigationButton title={alt} className="size-14" href={href} key={href}>
+            <NavigationButton
+              variant="outline"
+              className="relative size-14 hover:scale-110"
+              key={props.href}
+              {...props}
+            >
               {icon}
             </NavigationButton>
           )
