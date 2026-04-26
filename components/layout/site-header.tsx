@@ -4,7 +4,7 @@ import Image from "next/image"
 export function SiteHeader() {
   // Defaulting header height to what it is when the Image is fully loaded.
   return (
-    <header className="grid min-h-[175px] grid-cols-3 bg-card text-center">
+    <header className="site-section grid min-h-43.75 grid-cols-3 text-center">
       <div className="flex flex-none flex-col items-end justify-center">
         <Image
           unoptimized
