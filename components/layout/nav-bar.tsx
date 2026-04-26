@@ -2,8 +2,8 @@ import { ButtonGroup } from "../ui/button-group"
 import { NavigationButton } from "./nav-button"
 
 const routes = [
-  { href: "#aboutme", title: "Home" },
-  { href: "#projects", title: "Projects" },
+  { href: "#aboutme", content: "Home" },
+  { href: "#projects", content: "Projects" },
 ]
 
 export function NavigationBar() {
