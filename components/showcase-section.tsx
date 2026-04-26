@@ -1,4 +1,5 @@
-import { PropsWithChildren } from "react"
+import type { PropsWithChildren } from "react"
+import { Section } from "./section"
 
 export interface ShowcaseSectionProps extends PropsWithChildren {
   title: string
@@ -8,12 +9,12 @@ export interface ShowcaseSectionProps extends PropsWithChildren {
 
 export function ShowcaseSection({ title, description, id, children }: ShowcaseSectionProps) {
   return (
-    <section className="flex flex-col gap-2" id={id}>
+    <Section id={id}>
       <div className="text-center">
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
       {children}
-    </section>
+    </Section>
   )
 }
