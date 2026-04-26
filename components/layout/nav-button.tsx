@@ -1,14 +1,22 @@
 import Link from "next/link"
 import { Button } from "../ui/button"
+import type { ComponentProps, ReactNode } from "react"
 
-export interface NavButtonProps {
+export type NavButtonProps = {
   href: string
-  title: string
-}
-export function NavigationButton({ href, title }: NavButtonProps) {
+} & Omit<ComponentProps<typeof Button>, "asChild" | "children"> &
+  (
+    | {
+        content?: never
+        children: ReactNode
+      }
+    | { content: string; children?: never }
+  )
+
+export function NavigationButton({ href, children, ...props }: NavButtonProps) {
   return (
-    <Button asChild>
-      <Link href={href}>{title}</Link>
+    <Button {...props} asChild>
+      <Link href={href}>{children ?? props.content}</Link>
     </Button>
   )
 }
