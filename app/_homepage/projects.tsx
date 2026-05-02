@@ -1,13 +1,13 @@
 import { ShowcasePiece } from "@/components/showcase-piece"
-import { ShowcaseSection } from "@/components/showcase-section"
+import { SectionWithIntro } from "@/components/section-with-intro"
 import { content } from "@/misc/showcase.json"
 
 export default function ProjectsShowcase() {
   return (
-    <ShowcaseSection id="projects" title="Projects" description="The larger projects I worked on throughout my career">
+    <SectionWithIntro id="projects" title="Projects" description="The larger projects I worked on throughout my career">
       {content.map((piece) => (
-        <ShowcasePiece key={piece.href} {...piece} />
+        <ShowcasePiece key={piece.id} {...piece} />
       ))}
-    </ShowcaseSection>
+    </SectionWithIntro>
   )
 }

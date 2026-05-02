@@ -1,8 +1,8 @@
-import { ShowcaseSection } from "@/components/showcase-section"
+import { SectionWithIntro } from "@/components/section-with-intro"
 
 export default function AboutMe() {
   return (
-    <ShowcaseSection title="About Me" description="" id="aboutme">
+    <SectionWithIntro title="About Me" description="" id="aboutme">
       <p>
         Hey there! I'm Kyle Grenier, a graduate of Bradley University and an immersive technology developer for The
         Aerospace Corporation based in South California.
@@ -20,6 +20,6 @@ export default function AboutMe() {
       </p>
       <p>Although programming is my specialty, I also enjoy creating electronic music in my free time.</p>
       <p>Take a look at the work I've produced during my time as a student.</p>
-    </ShowcaseSection>
+    </SectionWithIntro>
   )
 }
