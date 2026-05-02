@@ -1,4 +1,4 @@
-import { ButtonGroup } from "../ui/button-group"
+import { ButtonGroup } from "@/components/ui/button-group"
 import { NavigationButton } from "./nav-button"
 
 const routes = [

@@ -1,4 +1,4 @@
-import { SocialGrid } from "../social-grid"
+import { SocialGrid } from "./social-grid"
 import { NavigationBar } from "./nav-bar"
 import Image from "next/image"
 
