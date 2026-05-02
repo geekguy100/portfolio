@@ -1,8 +1,9 @@
 import { PlayProject } from "../_components/play-project"
+import { ProjectGameplay } from "../_components/project-gameplay"
 import { ProjectDescription, ProjectIntro, ProjectTitle } from "../_components/project-intro"
 import { getProjectMetdata } from "@/lib/helpers"
 
-export const metadata = getProjectMetdata("disastergolf");
+export const metadata = getProjectMetdata("disastergolf")
 
 export default function DisasterGolfPage() {
   return (
@@ -18,6 +19,14 @@ export default function DisasterGolfPage() {
         </ProjectDescription>
       </ProjectIntro>
       <PlayProject type="download" steamLink="https://store.steampowered.com/app/2575960/Disaster_Golf/" />
+      <ProjectGameplay
+        content={[
+          {
+            src: "https://www.youtube.com/embed/rs9bdJmgKEg?si=adlZ4V4I9EkkdqeP",
+            title: "Disaster Golf Gameplay Trailer",
+          },
+        ]}
+      />
     </>
   )
 }
