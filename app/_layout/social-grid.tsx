@@ -26,7 +26,7 @@ const socials: SocialProps[] = [
     icon: <MailIcon className="size-5" />,
   },
   {
-    href: "https://www.linkedin.com/in/kyle-grenier/",
+    href: "https://www.linkedin.com/in/kyle-grenier",
     title: "LinkedIn Profile",
     icon: <Image fetchPriority="high" fill src="/linkedin_white.png" alt="Itch.io profile" className="scale-50" />,
   },
