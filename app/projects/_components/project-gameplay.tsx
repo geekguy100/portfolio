@@ -5,7 +5,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 export type ProjectGameplayProps = { content: { src: string; title: string }[] }
 export function ProjectGameplay({ content }: ProjectGameplayProps) {
   return (
-    <>
+    <section>
       <SectionTitle>Gameplay</SectionTitle>
       <Carousel className="mx-auto">
         <CarouselContent>
@@ -30,7 +30,7 @@ export function ProjectGameplay({ content }: ProjectGameplayProps) {
           </>
         )}
       </Carousel>
-    </>
+    </section>
   )
 }
 
