@@ -1,9 +1,9 @@
 import { ButtonGroup } from "@/components/ui/button-group"
-import { NavigationButton } from "./nav-button"
+import { NavigationButton } from "../../components/nav-button"
 
 const routes = [
-  { href: "/", content: "Home" },
-  { href: "/#projects", content: "Projects" },
+  { href: "/", children: "Home" },
+  { href: "/#projects", children: "Projects" },
 ]
 
 export function NavigationBar() {
