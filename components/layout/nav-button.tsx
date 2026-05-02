@@ -4,8 +4,7 @@ import type { ComponentProps, ReactNode } from "react"
 
 export type NavButtonProps = {
   href: string
-} & Omit<ComponentProps<typeof Button>, "asChild" | "children"> &
-  (
+} & Omit<ComponentProps<typeof Button>, "asChild" | "children"> & { newTab?: boolean } & (
     | {
         content?: never
         children: ReactNode
@@ -13,10 +12,12 @@ export type NavButtonProps = {
     | { content: string; children?: never }
   )
 
-export function NavigationButton({ href, children, ...props }: NavButtonProps) {
+export function NavigationButton({ href, children, newTab = false, ...props }: NavButtonProps) {
   return (
     <Button {...props} asChild>
-      <Link href={href}>{children ?? props.content}</Link>
+      <Link target={newTab ? "_blank" : undefined} href={href}>
+        {children ?? props.content}
+      </Link>
     </Button>
   )
 }

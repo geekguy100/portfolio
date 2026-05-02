@@ -16,9 +16,9 @@ const socials: SocialProps[] = [
     icon: <GitHubIcon className="size-7" />,
   },
   {
-    href: "https://github.com/geekguy1003",
+    href: "https://geekguy100.itch.io",
     title: "Itch.io Profile",
-    icon: <Image fill src="/itchio.png" alt="Itch.io profile" className="scale-50 rounded-lg" />,
+    icon: <Image fetchPriority="high" fill src="/itchio.png" alt="Itch.io profile" className="scale-50 rounded-lg" />,
   },
   {
     href: "https://github.com/geekguy10021",
@@ -42,6 +42,7 @@ export function SocialGrid() {
               variant="outline"
               className="relative size-14 hover:scale-110"
               key={props.href}
+              newTab
               {...props}
             >
               {icon}
