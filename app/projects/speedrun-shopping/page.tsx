@@ -1,5 +1,8 @@
+import { getProjectMetdata } from "@/lib/helpers";
 import { PlayProject } from "../_components/play-project"
 import { ProjectIntro, ProjectTitle, ProjectDescription } from "../_components/project-intro"
+
+export const metadata = getProjectMetdata("speedrun-shopping");
 
 export default function SpeedrunShoppingPage() {
   return (

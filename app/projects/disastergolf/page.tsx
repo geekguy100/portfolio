@@ -1,5 +1,8 @@
 import { PlayProject } from "../_components/play-project"
 import { ProjectDescription, ProjectIntro, ProjectTitle } from "../_components/project-intro"
+import { getProjectMetdata } from "@/lib/helpers"
+
+export const metadata = getProjectMetdata("disastergolf");
 
 export default function DisasterGolfPage() {
   return (
