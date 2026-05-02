@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from "react"
-import { Section } from "./section"
+import { Section } from "./containers"
 
 export interface ShowcaseSectionProps extends PropsWithChildren {
   title: string
@@ -7,7 +7,7 @@ export interface ShowcaseSectionProps extends PropsWithChildren {
   id: string
 }
 
-export function ShowcaseSection({ title, description, id, children }: ShowcaseSectionProps) {
+export function SectionWithIntro({ title, description, id, children }: ShowcaseSectionProps) {
   return (
     <Section id={id}>
       <div className="text-center">
