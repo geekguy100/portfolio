@@ -2,12 +2,20 @@ import { PlayProject } from "../_components/play-project"
 import { ProjectGameplay } from "../_components/project-gameplay"
 import { ProjectDescription, ProjectIntro, ProjectTitle } from "../_components/project-intro"
 import { getProjectMetdata } from "@/lib/helpers"
+import {
+  ProjectRole,
+  ProjectRoleHeader,
+  ProjectRoleResponsibilities,
+  ProjectRoleResponsibility,
+  ProjectRoles,
+} from "../_components/project-roles"
+import { Project } from "../_components/project-wrapper"
 
 export const metadata = getProjectMetdata("disastergolf")
 
 export default function DisasterGolfPage() {
   return (
-    <>
+    <Project>
       <ProjectIntro>
         <ProjectTitle>Disaster Golf</ProjectTitle>
         <ProjectDescription>
@@ -27,6 +35,15 @@ export default function DisasterGolfPage() {
           },
         ]}
       />
-    </>
+      <ProjectRoles>
+        <ProjectRole>
+          <ProjectRoleHeader>Creative Director</ProjectRoleHeader>
+          <ProjectRoleResponsibilities>
+            <ProjectRoleResponsibility>Awesome sauce</ProjectRoleResponsibility>
+            <ProjectRoleResponsibility>Awesome sauce 2</ProjectRoleResponsibility>
+          </ProjectRoleResponsibilities>
+        </ProjectRole>
+      </ProjectRoles>
+    </Project>
   )
 }
