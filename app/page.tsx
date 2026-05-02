@@ -1,11 +1,11 @@
-import AboutMe from "./_aboutme/page"
-import Projects from "./_projects/page"
+import AboutMe from "./_homepage/aboutme"
+import ProjectsShowcase from "./_homepage/projects"
 
-export default function Page() {
+export default function HomePage() {
   return (
     <div className="flex flex-col">
       <AboutMe />
-      <Projects />
+      <ProjectsShowcase />
     </div>
   )
 }
