@@ -10,6 +10,8 @@ import {
   ProjectRoles,
 } from "../_components/project-roles"
 import { Project } from "../_components/project-wrapper"
+import { SectionTitle } from "@/components/section-title"
+import { PopupImage } from "@/components/popup-image"
 
 export const metadata = getProjectMetdata("disastergolf")
 
@@ -155,6 +157,17 @@ export default function DisasterGolfPage() {
           </Responsibilities>
         </ProjectRole>
       </ProjectRoles>
+      <article>
+        <SectionTitle>Disasters UML Diagram</SectionTitle>
+        <PopupImage
+          width={700}
+          height={700}
+          src="/disasters_uml.avif"
+          alt="UML diagram showcasing how the disasters system in Disaster Golf was engineered."
+          className="mx-auto"
+          title="Disasters UML Diagram"
+        />
+      </article>
     </Project>
   )
 }
