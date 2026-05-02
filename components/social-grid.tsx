@@ -1,6 +1,6 @@
-import { BlocksIcon, CogIcon, TvIcon } from "lucide-react"
+import { MailIcon } from "lucide-react"
 import { NavigationButton } from "./layout/nav-button"
-import { GitHubIcon, ItchIoIcon } from "./brand-icons"
+import { GitHubIcon } from "./brand-icons"
 import Image from "next/image"
 import type { ReactNode } from "react"
 
@@ -21,14 +21,14 @@ const socials: SocialProps[] = [
     icon: <Image fetchPriority="high" fill src="/itchio.png" alt="Itch.io profile" className="scale-50 rounded-lg" />,
   },
   {
-    href: "https://github.com/geekguy10021",
-    title: "GitHub Profile",
-    icon: <TvIcon />,
+    href: "mailto:kyle.grenier11@gmail.com",
+    title: "Email Kyle",
+    icon: <MailIcon className="size-5" />,
   },
   {
-    href: "https://github.com/geekguy1002",
-    title: "GitHub Profile",
-    icon: <CogIcon />,
+    href: "https://www.linkedin.com/in/kyle-grenier/",
+    title: "LinkedIn Profile",
+    icon: <Image fetchPriority="high" fill src="/linkedin_white.png" alt="Itch.io profile" className="scale-50" />,
   },
 ]
 
