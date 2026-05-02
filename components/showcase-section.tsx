@@ -3,7 +3,7 @@ import { Section } from "./section"
 
 export interface ShowcaseSectionProps extends PropsWithChildren {
   title: string
-  description: string
+  description?: string
   id: string
 }
 
