@@ -7,8 +7,17 @@
         "Created for IM 459 - Game Design Capstone to expand upon a pre-existing prototype.",
         "Released on Steam."
       ],
-      "href": "/projects/disastergolf",
-      "img": "/dgolf.gif"
+      "img": "/dgolf.gif",
+      "id": "disastergolf"
+    },
+    {
+      "title": "Speedrun Shopping",
+      "descriptions": [
+        "A game created given the theme of 'comedy', Speedrun Shopping is a frantic, fast-paced shopping simulator. Ram into other shoppers, steal items you need from them, and try to fill out your shopping list as quickly as you can!",
+        "Created for CIS 497 - Unity Design Patterns for practice working with design patterns on a large-scale project."
+      ],
+      "img": "/speedrun-shopping.gif",
+      "id": "speedrun-shopping"
     }
   ]
 }
