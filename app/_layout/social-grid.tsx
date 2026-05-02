@@ -1,5 +1,5 @@
 import { MailIcon } from "lucide-react"
-import { NavigationButton } from "./nav-button"
+import { NavigationButton } from "../../components/nav-button"
 import { GitHubIcon } from "../../components/brand-icons"
 import Image from "next/image"
 import type { ReactNode } from "react"
