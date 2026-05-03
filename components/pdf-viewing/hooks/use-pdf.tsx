@@ -8,7 +8,10 @@ import "pdfjs-dist/build/pdf.worker.min.mjs"
 // Somehow useSWR accomplishes that...
 
 // TODO: Add a pendingDocuments Set<string> that can be checked to see if a new load should be started.
-// TODO: Consider adding a PDFContext that can store this Map more permanently.
+// CONSIDER: Consider adding a PDFContext that can store this Map more permanently.
+
+// TODO: Test to make sure that if documents later in the PDF take a while to load that the loading spinner displays correctly.
+// TODO: Figure out how to scale the PDF viewport and adjust the width and height of the canvas as the screen size shrinks.
 const loadedDocuments: Map<string, pdf.PDFDocumentProxy> = new Map()
 
 export function useRenderedPDF(src: string, canvas: HTMLCanvasElement | null, initialPageNum: number = 1) {

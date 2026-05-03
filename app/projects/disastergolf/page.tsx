@@ -171,7 +171,11 @@ export default function DisasterGolfPage() {
       </article>
       <article>
         <SectionTitle>Code Documentation</SectionTitle>
-        <PdfViewer src="/dgcodedocs.pdf" />
+        <PdfViewer
+          canvasProps={{ className: "mx-auto " }}
+          carouselProps={{ className: "mx-48" }}
+          src="/dgcodedocs.pdf"
+        />
       </article>
     </Project>
   )
