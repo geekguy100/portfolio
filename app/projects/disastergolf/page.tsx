@@ -12,6 +12,7 @@ import {
 import { Project } from "../_components/project-wrapper"
 import { SectionTitle } from "@/components/section-title"
 import { PopupImage } from "@/components/popup-image"
+import { PdfViewer } from "@/components/pdf-viewing/pdf-viewer-lazy"
 
 export const metadata = getProjectMetdata("disastergolf")
 
@@ -167,6 +168,10 @@ export default function DisasterGolfPage() {
           className="mx-auto"
           title="Disasters UML Diagram"
         />
+      </article>
+      <article>
+        <SectionTitle>Code Documentation</SectionTitle>
+        <PdfViewer src="/dgcodedocs.pdf" />
       </article>
     </Project>
   )
