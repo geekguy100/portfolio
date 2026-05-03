@@ -1,21 +1,45 @@
 "use client"
 
 import { usePDFDocument, useRenderedPDF } from "@/components/pdf-viewing/hooks/use-pdf"
-import { useState, type ComponentPropsWithoutRef, type CustomComponentPropsWithRef } from "react"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel"
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ComponentPropsWithoutRef,
+  type CustomComponentPropsWithRef,
+} from "react"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "../ui/carousel"
 import { Spinner } from "../ui/spinner"
 import { cn } from "@/lib/utils"
 export interface PdfViewerProps {
-  carouselProps?: CustomComponentPropsWithRef<typeof Carousel>
+  carouselProps?: Omit<CustomComponentPropsWithRef<typeof Carousel>, "setApi">
   canvasProps?: ComponentPropsWithoutRef<"canvas">
   src: string
+  showPageNumber?: boolean
 }
 
-export function _PdfViewer({ src, carouselProps, canvasProps }: PdfViewerProps) {
+export function _PdfViewer({ src, carouselProps, showPageNumber = false, canvasProps }: PdfViewerProps) {
   const { pdf } = usePDFDocument(src)
+  const [embla, setEmbla] = useState<CarouselApi>()
+  const { currentPage } = usePageNumber(embla)
   const numPages = pdf?.numPages ?? 0
+
   return (
-    <Carousel {...carouselProps}>
+    <Carousel
+      setApi={(api) => {
+        if (!showPageNumber) return
+        setEmbla(api)
+      }}
+      {...carouselProps}
+    >
       <CarouselContent>
         {Array.from({ length: numPages }).map((_, i) => (
           <CarouselItem key={i}>
@@ -23,6 +47,11 @@ export function _PdfViewer({ src, carouselProps, canvasProps }: PdfViewerProps) 
           </CarouselItem>
         ))}
       </CarouselContent>
+      {showPageNumber && currentPage !== undefined && (
+        <p className="mx-auto w-fit">
+          {currentPage} / {numPages}
+        </p>
+      )}
       {numPages > 1 && (
         <>
           <CarouselPrevious size="icon-lg" />
@@ -49,4 +78,31 @@ function PageViewer({
   ) : (
     <canvas {...props} width={width ?? viewport?.width} height={height ?? viewport?.height} ref={setCanvasRef} />
   )
+}
+
+function usePageNumber(api: CarouselApi) {
+  const [pageNum, setPageNum] = useState<number | undefined>(undefined)
+
+  const selectCallback = useCallback(
+    (api: CarouselApi) => {
+      setPageNum(getCurrentSlide(api))
+    },
+    [setPageNum]
+  )
+
+  useEffect(() => {
+    if (!api) return
+    api.on("select", selectCallback)
+    selectCallback(api)
+    return () => {
+      api.off("select", selectCallback)
+    }
+  }, [api])
+
+  return { currentPage: pageNum }
+}
+
+function getCurrentSlide(api: CarouselApi) {
+  if (!api) return -1
+  return api.selectedScrollSnap() + 1
 }
