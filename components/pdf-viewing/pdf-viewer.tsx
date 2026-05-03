@@ -8,6 +8,7 @@ import {
   useState,
   type ComponentPropsWithoutRef,
   type CustomComponentPropsWithRef,
+  type ReactNode,
 } from "react"
 import {
   Carousel,
@@ -19,14 +20,18 @@ import {
 } from "../ui/carousel"
 import { Spinner } from "../ui/spinner"
 import { cn } from "@/lib/utils"
-export interface PdfViewerProps {
-  carouselProps?: Omit<CustomComponentPropsWithRef<typeof Carousel>, "setApi">
-  canvasProps?: ComponentPropsWithoutRef<"canvas">
+import { DownloadButton } from "../download-button"
+
+type Downloadable = { downloadable: true; fileName: string }
+type NotDownloadable = { downloadable?: never; fileName?: never }
+export type PdfViewerProps = {
+  carouselProps?: Omit<CustomComponentPropsWithRef<typeof Carousel>, "setApi" | "children">
+  canvasProps?: Omit<ComponentPropsWithoutRef<"canvas">, "children">
   src: string
   showPageNumber?: boolean
-}
+} & (Downloadable | NotDownloadable)
 
-export function _PdfViewer({ src, carouselProps, showPageNumber = false, canvasProps }: PdfViewerProps) {
+export function _PdfViewer({ src, carouselProps, showPageNumber = false, canvasProps, ...props }: PdfViewerProps) {
   const { pdf } = usePDFDocument(src)
   const [embla, setEmbla] = useState<CarouselApi>()
   const { currentPage } = usePageNumber(embla)
@@ -47,11 +52,19 @@ export function _PdfViewer({ src, carouselProps, showPageNumber = false, canvasP
           </CarouselItem>
         ))}
       </CarouselContent>
-      {showPageNumber && currentPage !== undefined && (
-        <p className="mx-auto w-fit">
-          {currentPage} / {numPages}
-        </p>
-      )}
+      <div className="mt-2 flex flex-col items-center gap-2">
+        {showPageNumber && currentPage !== undefined && (
+          <p>
+            {currentPage} / {numPages}
+          </p>
+        )}
+        {props.downloadable && (
+          <DownloadButton className="w-64" href={src} fileName={props.fileName}>
+            Download
+          </DownloadButton>
+        )}
+      </div>
+
       {numPages > 1 && (
         <>
           <CarouselPrevious size="icon-lg" />
