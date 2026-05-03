@@ -8,34 +8,23 @@ import "pdfjs-dist/build/pdf.worker.min.mjs"
 // Somehow useSWR accomplishes that...
 
 // TODO: Add a pendingDocuments Set<string> that can be checked to see if a new load should be started.
+// TODO: Consider adding a PDFContext that can store this Map more permanently.
 const loadedDocuments: Map<string, pdf.PDFDocumentProxy> = new Map()
 
-export function usePDF(src: string, canvas: HTMLCanvasElement | null, initialPageNum: number = 1) {
-  const docRef = useRef<pdf.PDFDocumentProxy>(loadedDocuments.get(src) || null)
+export function useRenderedPDF(src: string, canvas: HTMLCanvasElement | null, initialPageNum: number = 1) {
+  const { pdf: document, isLoading: isDocumentLoading } = usePDFDocument(src)
   const pageRef = useRef<pdf.PDFPageProxy>(null)
   const [viewport, setViewport] = useState<pdf.PageViewport>()
   const [pageNum, setPageNum] = useState(initialPageNum)
-  const [isLoading, setIsLoading] = useState(true)
+  const [isPageLoading, setIsPageLoading] = useState(true)
   const [isRendering, setIsRendering] = useState(false)
 
-  // Loading the document and current page
+  // Loading the current page
   useEffect(() => {
-    async function loadDocumentAndPage() {
-      setIsLoading(true)
-      if (docRef.current === null) await loadDocumentAsync()
-      await loadPageAsync()
-      setIsLoading(false)
-    }
-
-    async function loadDocumentAsync() {
-      const doc = await pdf.getDocument(src).promise
-      docRef.current = doc
-      loadedDocuments.set(src, doc)
-    }
-
     async function loadPageAsync() {
+      setIsPageLoading(true)
       try {
-        const page = await docRef.current!.getPage(pageNum)
+        const page = await document!.getPage(pageNum)
         pageRef.current = page
 
         const viewport = page!.getViewport({ scale: 1 })
@@ -50,11 +39,14 @@ export function usePDF(src: string, canvas: HTMLCanvasElement | null, initialPag
 
           console.error(err)
         }
+      } finally {
+        setIsPageLoading(false)
       }
     }
 
-    loadDocumentAndPage()
-  }, [src, pageNum])
+    if (document === undefined) return
+    loadPageAsync()
+  }, [document, pageNum])
 
   // Rendering current page
   useEffect(() => {
@@ -73,5 +65,45 @@ export function usePDF(src: string, canvas: HTMLCanvasElement | null, initialPag
     renderPageAsync()
   }, [viewport, canvas])
 
-  return { viewport, pageNum, setPageNum, numPages: docRef.current?.numPages ?? 0, isLoading, isRendering }
+  return {
+    viewport,
+    pageNum,
+    setPageNum,
+    numPages: document?.numPages ?? 0,
+    isLoading: isDocumentLoading || isPageLoading,
+    isRendering,
+  }
+}
+
+export function usePDFDocument(src: string) {
+  const [isLoading, setIsLoading] = useState(loadedDocuments.get(src) === undefined)
+  const [pdf, setPdf] = useState<pdf.PDFDocumentProxy | undefined>(loadedDocuments.get(src))
+
+  useEffect(() => {
+    async function load() {
+      setIsLoading(true)
+      const result = await getPdfDocument(src)
+      setIsLoading(false)
+      setPdf(result)
+    }
+
+    if (pdf !== undefined) return
+    load()
+  }, [src])
+
+  return { isLoading, pdf }
+}
+
+/**
+ * Gets the requested PDF document from the cache if it exists. Otherwise, loads the document, caches it, then returns the result.
+ * @param src The source of the PDF document.
+ * @returns A Promise resolving to a PDFDocumentProxy.
+ */
+async function getPdfDocument(src: string) {
+  let doc = loadedDocuments.get(src)
+  if (doc) return doc
+
+  doc = await pdf.getDocument(src).promise
+  loadedDocuments.set(src, doc)
+  return doc
 }
