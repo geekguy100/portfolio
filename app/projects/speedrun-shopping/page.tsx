@@ -1,12 +1,15 @@
-import { getProjectMetdata } from "@/lib/helpers";
+import { getProjectMetdata } from "@/lib/helpers"
 import { PlayProject } from "../_components/play-project"
 import { ProjectIntro, ProjectTitle, ProjectDescription } from "../_components/project-intro"
+import { Project } from "../_components/project-wrapper"
+import { PdfViewer } from "@/components/pdf-viewing/pdf-viewer-lazy"
+import { SectionTitle } from "@/components/section-title"
 
-export const metadata = getProjectMetdata("speedrun-shopping");
+export const metadata = getProjectMetdata("speedrun-shopping")
 
 export default function SpeedrunShoppingPage() {
   return (
-    <>
+    <Project>
       <ProjectIntro>
         <ProjectTitle>Speedrun Shopping</ProjectTitle>
         <div className="space-y-2">
@@ -25,6 +28,17 @@ export default function SpeedrunShoppingPage() {
       <PlayProject type="embed" downloadLink="" githubLink="https://github.com/geekguy100/CIS497_ComedyGame">
         <iframe src="https://itch.io/embed-upload/3535053?color=333333" width="1000" height="820" />
       </PlayProject>
-    </>
+      <article>
+        <SectionTitle>Design Documentation</SectionTitle>
+        <PdfViewer
+          showPageNumber
+          downloadable
+          fileName="Speedrun Shopping Design Docs"
+          canvasProps={{ className: "mx-auto " }}
+          carouselProps={{ className: "mx-48" }}
+          src="/speedrunshopping_docs.pdf"
+        />
+      </article>
+    </Project>
   )
 }
