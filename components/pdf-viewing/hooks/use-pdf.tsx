@@ -7,25 +7,30 @@ import "pdfjs-dist/build/pdf.worker.min.mjs"
 // Basically look into how to prevent re-renders on the component that uses this hook and does not use all of its returned values.
 // Somehow useSWR accomplishes that...
 
+// TODO: Add a pendingDocuments Set<string> that can be checked to see if a new load should be started.
+const loadedDocuments: Map<string, pdf.PDFDocumentProxy> = new Map()
+
 export function usePDF(src: string, canvas: HTMLCanvasElement | null, initialPageNum: number = 1) {
-  const docRef = useRef<pdf.PDFDocumentProxy>(null)
+  const docRef = useRef<pdf.PDFDocumentProxy>(loadedDocuments.get(src) || null)
   const pageRef = useRef<pdf.PDFPageProxy>(null)
   const [viewport, setViewport] = useState<pdf.PageViewport>()
   const [pageNum, setPageNum] = useState(initialPageNum)
   const [isLoading, setIsLoading] = useState(true)
+  const [isRendering, setIsRendering] = useState(false)
 
   // Loading the document and current page
   useEffect(() => {
     async function loadDocumentAndPage() {
+      setIsLoading(true)
       if (docRef.current === null) await loadDocumentAsync()
       await loadPageAsync()
+      setIsLoading(false)
     }
 
     async function loadDocumentAsync() {
-      setIsLoading(true)
       const doc = await pdf.getDocument(src).promise
       docRef.current = doc
-      setIsLoading(false)
+      loadedDocuments.set(src, doc)
     }
 
     async function loadPageAsync() {
@@ -54,10 +59,10 @@ export function usePDF(src: string, canvas: HTMLCanvasElement | null, initialPag
   // Rendering current page
   useEffect(() => {
     async function renderPageAsync() {
-      setIsLoading(true)
+      setIsRendering(true)
       const viewport = pageRef.current!.getViewport({ scale: 1 })
       await pageRef.current!.render({ canvas, viewport }).promise
-      setIsLoading(false)
+      setIsRendering(false)
     }
 
     if (viewport === undefined || canvas === null) return
@@ -68,5 +73,5 @@ export function usePDF(src: string, canvas: HTMLCanvasElement | null, initialPag
     renderPageAsync()
   }, [viewport, canvas])
 
-  return { viewport, pageNum, setPageNum, numPages: docRef.current?.numPages ?? 0, isLoading }
+  return { viewport, pageNum, setPageNum, numPages: docRef.current?.numPages ?? 0, isLoading, isRendering }
 }
