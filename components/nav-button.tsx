@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import type { ComponentProps, ReactNode } from "react"
+import type { ComponentProps, ComponentPropsWithoutRef, CustomComponentPropsWithRef, ReactNode } from "react"
 
 export type NavButtonProps = {
   href: string
