@@ -15,7 +15,67 @@
       "playProject": {
         "type": "download",
         "steamLink": "https://store.steampowered.com/app/2575960/Disaster_Golf/"
-      }
+      },
+      "roles": [
+        {
+          "title": "My Roles",
+          "roles": [
+            {
+              "title": "Creative Director",
+              "responsibilities": [
+                {
+                  "responsibilitiy": "Hosted sprint retrospectives to discuss the most recent sprint.",
+                  "nested": [
+                    "I made sure that the team knows these discussions are open for anyone to provide feedback."
+                  ]
+                },
+                {
+                  "responsibilitiy": "Verified all work meets the discussed vision we have for the game."
+                },
+                {
+                  "responsibilitiy": "Managed discipline leads and sub-team leads to make sure the team is not only contributing to the project's creative vision but learning along the way."
+                }
+              ]
+            },
+            {
+              "title": "Lead Producer",
+              "responsibilities": [
+                {
+                  "responsibilitiy": "Frequently checked in with individual team members to ensure work is being completed as expected."
+                },
+                {
+                  "responsibilitiy": "Verified all work meets the discussed vision we have for the game."
+                },
+                {
+                  "responsibilitiy": "Notifies team members that any/all of their opinions are valid and will be taken into consideration.",
+                  "nested": [
+                    "I want people to be excited to work on this project. I want them to take ownership of their work and feel like they are contributing to something amazing."
+                  ]
+                },
+                {
+                  "responsibilitiy": "Makes sure the team is not only contributing to the project but learning along the way."
+                }
+              ]
+            },
+            {
+              "title": "Other Achievements",
+              "responsibilities": [
+                {
+                  "responsibilitiy": "Overhauled project management when work was not getting completed.",
+                  "nested": [
+                    "My efforts resulted in a steady flow of work being produced, increased communication between sub-teams, explicitly defined expectations for being a member of the project, a discipline lead, and a sub-team lead."
+                  ]
+                },
+                {
+                  "responsibilitiy": "Created anonymous feedback form where the team can privately express concerns and considerations."
+                },
+                { "responsibilitiy": "Created and managed our ClickUp page." }
+              ]
+            }
+          ]
+        },
+        { "title": "My Roles During Capstone", "roles": [] }
+      ]
     },
     {
       "title": "Speedrun Shopping",
