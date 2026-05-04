@@ -21,12 +21,12 @@ export default function ProjectsLayout({ children }: PropsWithChildren) {
           <Project>
             <ProjectIntro>
               <ProjectTitle>{projectDetails.title}</ProjectTitle>
-              <ProjectDescription>{projectDetails.longDescription}</ProjectDescription>
+              {projectDetails.longDescriptions?.map((t, i) => (
+                <ProjectDescription key={i}>{t}</ProjectDescription>
+              ))}
             </ProjectIntro>
-            {projectDetails.playProject.type === "download" ? (
+            {projectDetails.playProject.type === "download" && (
               <PlayProject {...(projectDetails.playProject as ProjectDetails["playProject"] & { type: "download" })} />
-            ) : (
-              <p>TODO</p>
             )}
             {children}
           </Project>
