@@ -80,6 +80,7 @@ function PageViewer({
   page,
   width,
   height,
+  className,
   ...props
 }: Pick<PdfViewerProps, "src"> & PdfViewerProps["canvasProps"] & { page: number }) {
   const [canvasRef, setCanvasRef] = useState<HTMLCanvasElement | null>(null)
@@ -89,7 +90,13 @@ function PageViewer({
       <Spinner className="size-16" />
     </div>
   ) : (
-    <canvas {...props} width={width ?? viewport?.width} height={height ?? viewport?.height} ref={setCanvasRef} />
+    <canvas
+      {...props}
+      className={cn("mx-auto", className)}
+      width={width ?? viewport?.width}
+      height={height ?? viewport?.height}
+      ref={setCanvasRef}
+    />
   )
 }
 
