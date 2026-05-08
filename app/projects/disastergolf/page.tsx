@@ -44,9 +44,11 @@ export default function DisasterGolfPage() {
           <Responsibilities>
             <Responsibility>
               Hosted sprint retrospectives to discuss the most recent sprint.
-              <ul>
-                <li>I made sure that the team knows these discussions are open for anyone to provide feedback.</li>
-              </ul>
+              <Responsibilities>
+                <Responsibility>
+                  I made sure that the team knows these discussions are open for anyone to provide feedback.
+                </Responsibility>
+              </Responsibilities>
             </Responsibility>
             <Responsibility>Verified all work meets the discussed vision we have for the game.</Responsibility>
             <Responsibility>
@@ -64,12 +66,12 @@ export default function DisasterGolfPage() {
             <Responsibility>Verified all work meets the discussed vision we have for the game.</Responsibility>
             <Responsibility>
               Notifies team members that any/all of their opinions are valid and will be taken into consideration.
-              <ul>
-                <li>
+              <Responsibilities>
+                <Responsibility>
                   I want people to be excited to work on this project. I want them to take ownership of their work and
                   feel like they are contributing to something amazing.
-                </li>
-              </ul>
+                </Responsibility>
+              </Responsibilities>
             </Responsibility>
             <Responsibility>
               Makes sure the team is not only contributing to the project but learning along the way.
@@ -81,13 +83,13 @@ export default function DisasterGolfPage() {
           <Responsibilities>
             <Responsibility>
               Overhauled project management when work was not getting completed.
-              <ul>
-                <li>
+              <Responsibilities>
+                <Responsibility>
                   My efforts resulted in a steady flow of work being produced, increased communication between
                   sub-teams, explicitly defined expectations for being a member of the project, a discipline lead, and a
                   sub-team lead.
-                </li>
-              </ul>
+                </Responsibility>
+              </Responsibilities>
             </Responsibility>
             <Responsibility>
               Created anonymous feedback form where the team can privately express concerns and considerations.
@@ -102,11 +104,11 @@ export default function DisasterGolfPage() {
           <Responsibilities>
             <Responsibility>
               Refactored old prototype code to follow design principles and to be more expandable.
-              <ul>
-                <li>
+              <Responsibilities>
+                <Responsibility>
                   Utilizing inheritance and composition to create new disasters and methods of placing them in the game.
-                </li>
-              </ul>
+                </Responsibility>
+              </Responsibilities>
             </Responsibility>
             <Responsibility>Created backend architecture to streamline creation of new disasters.</Responsibility>
             <Responsibility>
@@ -138,21 +140,21 @@ export default function DisasterGolfPage() {
           <Responsibilities>
             <Responsibility>
               Disaster and Placement Creation
-              <ul>
-                <li>
+              <Responsibilities>
+                <Responsibility>
                   Created documentation to inform team members on how the system works, how to create new disasters,
                   placement types, etc.
-                </li>
-              </ul>
+                </Responsibility>
+              </Responsibilities>
             </Responsibility>
             <Responsibility>
               Analytics Tracking
-              <ul>
-                <li>
+              <Responsibilities>
+                <Responsibility>
                   Created documentation to inform other programmers on how the data is being tracked, stored, and
                   prepared for submission.
-                </li>
-              </ul>
+                </Responsibility>
+              </Responsibilities>
             </Responsibility>
             <Responsibility>Created and managed our ClickUp page.</Responsibility>
           </Responsibilities>
