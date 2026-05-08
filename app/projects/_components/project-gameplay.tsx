@@ -2,21 +2,34 @@ import { SectionTitle } from "@/components/section-title"
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
-export type ProjectGameplayProps = { content: { src: string; title: string }[] }
+type ContentItem =
+  | {
+      src: string
+      title: string
+      mimeType: string
+    }
+  | ExternalContentItem
+
+type ExternalContentItem = {
+  src: `http${string}`
+  title: string
+  mimeType?: never
+}
+
+export type ProjectGameplayProps = { content: ContentItem[] }
 export function ProjectGameplay({ content }: ProjectGameplayProps) {
   return (
     <section>
       <SectionTitle>Gameplay</SectionTitle>
       <Carousel className="mx-auto">
         <CarouselContent>
-          {content.map((t) => (
-            <CarouselItem key={t.src}>
+          {content.map((t, i) => (
+            <CarouselItem key={i}>
               <div className="flex h-full items-center justify-center">
-                {isUrl(t.src) ? (
-                  <EmbeddedGameplay {...t} />
-                ) : (
+                {isUrl(t.src) && <EmbeddedGameplay {...t} />}
+                {!isUrl(t.src) && (
                   <div className="relative size-full">
-                    <Image {...t} fill alt={`Gameplay for "${t.title}"`} />
+                    {t.mimeType!.includes("video") ? <VideoItem item={t} /> : <ImgItem item={t} />}
                   </div>
                 )}
               </div>
@@ -34,6 +47,25 @@ export function ProjectGameplay({ content }: ProjectGameplayProps) {
   )
 }
 
+interface ItemProps {
+  item: ContentItem
+}
+
+function VideoItem({ item }: ItemProps) {
+  const { mimeType, title, src } = item
+  return (
+    <video className="mx-auto" controls title={title} width={1120}>
+      <source src={src} type={mimeType} />
+      <p>Your browser does not support video playback</p>
+    </video>
+  )
+}
+
+function ImgItem({ item }: ItemProps) {
+  const { title, src } = item
+  return <Image className="mx-auto" src={src} title={title} fill alt="" />
+}
+
 function EmbeddedGameplay({ src, title }: ProjectGameplayProps["content"][number]) {
   return (
     <iframe
@@ -48,6 +80,6 @@ function EmbeddedGameplay({ src, title }: ProjectGameplayProps["content"][number
   )
 }
 
-function isUrl(value: string) {
+function isUrl(value: string): value is `http${string}` {
   return value.startsWith("http")
 }

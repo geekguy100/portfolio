@@ -18,6 +18,15 @@
       ],
       "img": "/speedrun-shopping.gif",
       "id": "speedrun-shopping"
+    },
+    {
+      "title": "Shattered Shards",
+      "descriptions": [
+        "A rapidly developed prototype made in around four weeks. Explore an eerie, distorted, abandoned school for notes left by previous captives to figure out what happened and how you'll get out. Keep your eyes peeled for the monster lurking the halls.",
+        "Created for IM 488 - Capstone Prototyping to develop prototypes that may be expanded upon senior year."
+      ],
+      "img": "/shattered-shards.gif",
+      "id": "shattered-shards"
     }
   ]
 }
