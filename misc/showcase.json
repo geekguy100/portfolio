@@ -45,6 +45,24 @@
       ],
       "img": "/drop-of-life.gif",
       "id": "drop-of-life"
+    },
+    {
+      "title": "Sundown Gundown",
+      "descriptions": [
+        "A rapidly developed prototype made in around four weeks. Play as a gunslinger seeking to rid the town of bandits. Hide behind cover to avoid incoming fire, and duel against a variety of enemies who seek to claim what's theirs. Features a stamina system to encourage tactical gameplay, strategy, and decision making.",
+        "Created for IM 488 - Capstone Prototyping to develop prototypes that may be expanded upon senior year."
+      ],
+      "img": "/sundown-gundown.gif",
+      "id": "sundown-gundown"
+    },
+    {
+      "title": "Murder at the Mystery Motel",
+      "descriptions": [
+        "A game where you play as a detective attempting to solve a mysterious murder. Features a complex dialogue system written in JSON, a journal that records clues collected throughout the game, and a custom interaction system created using the strategy pattern.",
+        "Created for CIS 497 - Unity Design Patterns for practice working with design patterns on a large-scale project."
+      ],
+      "img": "/mystery-motel.gif",
+      "id": "mystery-motel"
     }
   ]
 }
