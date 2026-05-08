@@ -1,13 +1,9 @@
 import { cn } from "@/lib/utils"
 import type { ComponentProps, HTMLAttributes } from "react"
 
-const COMMON_CLASSNAME: HTMLAttributes<"div">["className"] = "site-section flex flex-col p-6"
+const COMMON_CLASSNAME: HTMLAttributes<"div">["className"] = "site-section flex flex-col p-6 *:lg:mx-48"
 
-export function Section(props: ComponentProps<"section">) {
-  return <Container type="section" {...props} />
-}
-
-export function Article({ children, id, className, ...props }: ComponentProps<"article">) {
+export function Article(props: ComponentProps<"article">) {
   return <Container type="article" {...props} />
 }
 

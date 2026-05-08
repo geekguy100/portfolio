@@ -1,5 +1,6 @@
+import { Article } from "@/components/containers"
 import type { PropsWithChildren } from "react"
 
 export function Project({ children }: PropsWithChildren) {
-  return <article className="space-y-4 lg:mx-45">{children}</article>
+  return <Article className="gap-4">{children}</Article>
 }
