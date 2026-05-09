@@ -54,7 +54,7 @@ interface ItemProps {
 function VideoItem({ item }: ItemProps) {
   const { mimeType, title, src } = item
   return (
-    <video className="mx-auto" controls title={title} width={1120}>
+    <video className="mx-auto aspect-video w-125 lg:w-200" controls title={title} width={1120}>
       <source src={src} type={mimeType} />
       <p>Your browser does not support video playback</p>
     </video>
