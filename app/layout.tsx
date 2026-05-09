@@ -16,7 +16,7 @@ const fontMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Home | Kyle Grenier",
   description: "Kyle Grenier's Portfolio",
-  authors: [{name: "Kyle Grenier"}]
+  authors: [{ name: "Kyle Grenier" }],
 }
 
 export default function RootLayout({

@@ -11,9 +11,9 @@ export interface ShowcasePieceProps {
 export function ShowcasePiece({ title, descriptions, id, img }: ShowcasePieceProps) {
   return (
     <Link href={`/projects/${id}`}>
-      <article className="flex gap-4 rounded-md p-6 outline-primary hover:outline-3">
+      <article className="flex flex-col gap-4 rounded-md p-6 outline-primary hover:outline-3 sm:flex-row">
         <Image
-          className="object-contain"
+          className="mx-auto object-contain"
           unoptimized
           src={img}
           width={300}
@@ -21,7 +21,7 @@ export function ShowcasePiece({ title, descriptions, id, img }: ShowcasePiecePro
           alt={`Thumbnail for content titled "${title}"`}
         />
         <div className="flex flex-col">
-          <h3>{title}</h3>
+          <h3 className="text-center sm:text-left">{title}</h3>
           {descriptions.map((desc, i) => (
             <p key={i}>{desc}</p>
           ))}

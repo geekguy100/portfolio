@@ -2,7 +2,8 @@ import { MailIcon } from "lucide-react"
 import { NavigationButton } from "../../components/nav-button"
 import { GitHubIcon } from "../../components/brand-icons"
 import Image from "next/image"
-import type { ReactNode } from "react"
+import { type PropsWithChildren, type ReactNode } from "react"
+import { ButtonGroup } from "@/components/ui/button-group"
 
 interface SocialProps {
   href: string
@@ -34,22 +35,37 @@ const socials: SocialProps[] = [
 
 export function SocialGrid() {
   return (
-    <div className="flex items-center">
-      <div className="grid grid-cols-2 gap-4">
-        {socials.map(({ icon, ...props }) => {
-          return (
-            <NavigationButton
-              variant="outline"
-              className="relative size-14 hover:scale-110"
-              key={props.href}
-              newTab
-              {...props}
-            >
-              {icon}
-            </NavigationButton>
-          )
-        })}
-      </div>
+    <div className="flex justify-center sm:items-center sm:justify-normal">
+      <DesktopSocialGrid>
+        <SocialIcons />
+      </DesktopSocialGrid>
+      <MobileSocialGrid>
+        <SocialIcons />
+      </MobileSocialGrid>
     </div>
   )
+}
+
+function SocialIcons() {
+  return socials.map(({ icon, ...props }) => {
+    return (
+      <NavigationButton
+        variant="outline"
+        className="relative size-14 hover:scale-110"
+        key={props.href}
+        newTab
+        {...props}
+      >
+        {icon}
+      </NavigationButton>
+    )
+  })
+}
+
+function DesktopSocialGrid({ children }: PropsWithChildren) {
+  return <div className="hidden sm:grid sm:grid-cols-2 sm:gap-4">{children}</div>
+}
+
+function MobileSocialGrid({ children }: PropsWithChildren) {
+  return <ButtonGroup className="pb-2 sm:hidden sm:pb-0">{children}</ButtonGroup>
 }

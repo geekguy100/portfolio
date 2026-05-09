@@ -70,7 +70,6 @@ export default function ShatteredShards() {
           showPageNumber
           downloadable
           fileName="Shattered Shards Design Briefs"
-          carouselProps={{ className: "mx-48" }}
           src="/horror_design_briefs.pdf"
         />
       </article>
@@ -80,7 +79,6 @@ export default function ShatteredShards() {
           showPageNumber
           downloadable
           fileName="Shattered Shards Final Changes"
-          carouselProps={{ className: "mx-48" }}
           src="/horror_final_changes.pdf"
         />
       </article>

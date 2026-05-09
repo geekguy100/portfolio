@@ -70,19 +70,12 @@ export default function DropOfLifePage() {
           showPageNumber
           downloadable
           fileName="A Drop of Life Design Pattern Overview"
-          carouselProps={{ className: "mx-48" }}
           src="/dropoflife-patterns.pdf"
         />
       </article>
       <article>
         <SectionTitle>Design Briefs</SectionTitle>
-        <PdfViewer
-          showPageNumber
-          downloadable
-          fileName="A Drop of Life Design Briefs"
-          carouselProps={{ className: "mx-48" }}
-          src="/dropoflife-briefs.pdf"
-        />
+        <PdfViewer showPageNumber downloadable fileName="A Drop of Life Design Briefs" src="/dropoflife-briefs.pdf" />
       </article>
       <ProjectFooter href="https://drive.google.com/drive/folders/1JxXxhAGcoq3D6GyPBUMfFaCfe9vpgaRd?usp=sharing" />
     </Project>

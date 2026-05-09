@@ -90,7 +90,6 @@ export default function MysteryMotelPage() {
           showPageNumber
           downloadable
           fileName="Mystery at the Murder Motel Design Docs"
-          carouselProps={{ className: "mx-48" }}
           src="/mysterymotel-design.pdf"
         />
       </article>

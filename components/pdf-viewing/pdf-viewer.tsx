@@ -4,11 +4,9 @@ import { usePDFDocument, useRenderedPDF } from "@/components/pdf-viewing/hooks/u
 import {
   useCallback,
   useEffect,
-  useRef,
   useState,
   type ComponentPropsWithoutRef,
   type CustomComponentPropsWithRef,
-  type ReactNode,
 } from "react"
 import {
   Carousel,
@@ -38,40 +36,50 @@ export function _PdfViewer({ src, carouselProps, showPageNumber = false, canvasP
   const numPages = pdf?.numPages ?? 0
 
   return (
-    <Carousel
-      setApi={(api) => {
-        if (!showPageNumber) return
-        setEmbla(api)
-      }}
-      {...carouselProps}
-    >
-      <CarouselContent>
-        {Array.from({ length: numPages }).map((_, i) => (
-          <CarouselItem key={i}>
-            <PageViewer {...canvasProps} src={src} page={i + 1} />
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <div className="mt-2 flex flex-col items-center gap-2">
-        {showPageNumber && currentPage !== undefined && (
-          <p>
-            {currentPage} / {numPages}
-          </p>
-        )}
-        {props.downloadable && (
-          <DownloadButton className="w-64" href={src} fileName={props.fileName}>
-            Download
-          </DownloadButton>
-        )}
-      </div>
+    <div className="mx-auto max-w-xl min-w-96">
+      <Carousel
+        setApi={(api) => {
+          if (!showPageNumber) return
+          setEmbla(api)
+        }}
+        {...carouselProps}
+      >
+        <CarouselContent>
+          {Array.from({ length: numPages }).map((_, i) => (
+            <CarouselItem key={i}>
+              <PageViewer {...canvasProps} src={src} page={i + 1} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <div className="mt-2 flex flex-col items-center gap-2">
+          {showPageNumber && currentPage !== undefined && (
+            <p>
+              {currentPage} / {numPages}
+            </p>
+          )}
+          {props.downloadable && (
+            <DownloadButton className="w-64" href={src} fileName={props.fileName}>
+              Download
+            </DownloadButton>
+          )}
+        </div>
 
-      {numPages > 1 && (
-        <>
-          <CarouselPrevious size="icon-lg" />
-          <CarouselNext size="icon-lg" />
-        </>
-      )}
-    </Carousel>
+        {numPages > 1 && (
+          <>
+            {/* Mobile */}
+            <div className="relative mb-4 block w-full sm:static sm:hidden sm:w-auto">
+              <CarouselPrevious size="icon-lg" className="left-0 sm:left-42" />
+              <CarouselNext size="icon-lg" className="right-0" />
+            </div>
+            {/* Desktop */}
+            <div className="hidden sm:block">
+              <CarouselPrevious size="icon-lg" />
+              <CarouselNext size="icon-lg" />
+            </div>
+          </>
+        )}
+      </Carousel>
+    </div>
   )
 }
 
@@ -92,7 +100,8 @@ function PageViewer({
   ) : (
     <canvas
       {...props}
-      className={cn("mx-auto", className)}
+      onContextMenu={(ev) => ev.preventDefault()}
+      className={cn("mx-auto size-full", className)}
       width={width ?? viewport?.width}
       height={height ?? viewport?.height}
       ref={setCanvasRef}
