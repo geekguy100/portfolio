@@ -73,7 +73,6 @@ export default function SundownGundownPage() {
           showPageNumber
           downloadable
           fileName="Sundown Gundown Design Briefs"
-          carouselProps={{ className: "mx-48" }}
           src="/sundowngundown-briefs.pdf"
         />
       </article>
@@ -84,7 +83,6 @@ export default function SundownGundownPage() {
           showPageNumber
           downloadable
           fileName="Sundown Gundown Final Changes"
-          carouselProps={{ className: "mx-48" }}
           src="/sundowngundown-final.pdf"
         />
       </article>

@@ -58,24 +58,12 @@ export default function BallBarragePage() {
 
       <article>
         <SectionTitle>Design Documentation</SectionTitle>
-        <PdfViewer
-          showPageNumber
-          downloadable
-          fileName="Ball Barrage Design Docs"
-          carouselProps={{ className: "mx-48" }}
-          src="/ballbarrage-design.pdf"
-        />
+        <PdfViewer showPageNumber downloadable fileName="Ball Barrage Design Docs" src="/ballbarrage-design.pdf" />
       </article>
 
       <article>
         <SectionTitle>Final Changes</SectionTitle>
-        <PdfViewer
-          showPageNumber
-          downloadable
-          fileName="Ball Barrage Final Changes"
-          carouselProps={{ className: "mx-48" }}
-          src="/ballbarrage-final.pdf"
-        />
+        <PdfViewer showPageNumber downloadable fileName="Ball Barrage Final Changes" src="/ballbarrage-final.pdf" />
       </article>
 
       <ProjectFooter href="https://drive.google.com/drive/folders/1wZLp4Qis0brMEPaf6uy0Qv4K1j_MN0PR?usp=sharing" />

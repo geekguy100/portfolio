@@ -95,13 +95,7 @@ export default function OutOfServicePage() {
 
       <article>
         <SectionTitle>FMV Maker Tools Documentation</SectionTitle>
-        <PdfViewer
-          showPageNumber
-          downloadable
-          fileName="FMV Maker Tools Documentation"
-          carouselProps={{ className: "mx-48" }}
-          src="/fmv-docs.pdf"
-        />
+        <PdfViewer showPageNumber downloadable fileName="FMV Maker Tools Documentation" src="/fmv-docs.pdf" />
       </article>
       <ProjectFooter href="https://drive.google.com/drive/folders/15nndCQTnqM_eK1M2GP7vSmePMREDLYCR?usp=sharing" />
     </Project>

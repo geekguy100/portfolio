@@ -70,8 +70,6 @@ export default function SpeedrunShoppingPage() {
           showPageNumber
           downloadable
           fileName="Speedrun Shopping Design Docs"
-          canvasProps={{ className: "mx-auto " }}
-          carouselProps={{ className: "mx-48" }}
           src="/speedrunshopping_docs.pdf"
         />
       </article>
