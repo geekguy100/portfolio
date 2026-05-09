@@ -71,7 +71,6 @@ function EmbeddedGameplay({ src, title }: ProjectGameplayProps["content"][number
     <iframe
       src={src}
       title={title}
-      allow="autoplay; clipboard-write; encrypted-media; web-share"
       referrerPolicy="strict-origin-when-cross-origin"
       allowFullScreen
       className="aspect-video w-125 lg:w-200"

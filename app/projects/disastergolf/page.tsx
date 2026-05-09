@@ -163,8 +163,8 @@ export default function DisasterGolfPage() {
       <article>
         <SectionTitle>Disasters UML Diagram</SectionTitle>
         <PopupImage
-          width={700}
-          height={700}
+          width={809}
+          height={426}
           src="/disasters_uml.avif"
           alt="UML diagram showcasing how the disasters system in Disaster Golf was engineered."
           className="mx-auto"

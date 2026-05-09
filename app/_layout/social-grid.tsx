@@ -5,6 +5,9 @@ import Image from "next/image"
 import { type PropsWithChildren, type ReactNode } from "react"
 import { ButtonGroup } from "@/components/ui/button-group"
 
+import ItchIoImage from "@/misc/static-icons/itchio.png"
+import LinkedInIcon from "@/misc/static-icons/linkedin_white.png"
+
 interface SocialProps {
   href: string
   icon: ReactNode
@@ -19,7 +22,17 @@ const socials: SocialProps[] = [
   {
     href: "https://geekguy100.itch.io",
     title: "Itch.io Profile",
-    icon: <Image fetchPriority="high" fill src="/itchio.png" alt="Itch.io profile" className="scale-50 rounded-lg" />,
+    icon: (
+      <Image
+        sizes="30px"
+        loading="eager"
+        quality={50}
+        fill
+        src={ItchIoImage}
+        alt="Itch.io profile"
+        className="scale-50 rounded-lg"
+      />
+    ),
   },
   {
     href: "mailto:kyle.grenier11@gmail.com",
@@ -29,7 +42,17 @@ const socials: SocialProps[] = [
   {
     href: "https://www.linkedin.com/in/kyle-grenier",
     title: "LinkedIn Profile",
-    icon: <Image fetchPriority="high" fill src="/linkedin_white.png" alt="Itch.io profile" className="scale-50" />,
+    icon: (
+      <Image
+        sizes="30px"
+        quality={50}
+        loading="eager"
+        fill
+        src={LinkedInIcon}
+        alt="LinkedIn profile"
+        className="scale-50"
+      />
+    ),
   },
 ]
 
