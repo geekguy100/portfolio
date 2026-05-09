@@ -22,7 +22,17 @@ const socials: SocialProps[] = [
   {
     href: "https://geekguy100.itch.io",
     title: "Itch.io Profile",
-    icon: <Image loading="eager" fill src={ItchIoImage} alt="Itch.io profile" className="scale-50 rounded-lg" />,
+    icon: (
+      <Image
+        sizes="30px"
+        loading="eager"
+        quality={50}
+        fill
+        src={ItchIoImage}
+        alt="Itch.io profile"
+        className="scale-50 rounded-lg"
+      />
+    ),
   },
   {
     href: "mailto:kyle.grenier11@gmail.com",
@@ -32,7 +42,17 @@ const socials: SocialProps[] = [
   {
     href: "https://www.linkedin.com/in/kyle-grenier",
     title: "LinkedIn Profile",
-    icon: <Image loading="eager" fill src={LinkedInIcon} alt="LinkedIn profile" className="scale-50" />,
+    icon: (
+      <Image
+        sizes="30px"
+        quality={50}
+        loading="eager"
+        fill
+        src={LinkedInIcon}
+        alt="LinkedIn profile"
+        className="scale-50"
+      />
+    ),
   },
 ]
 
