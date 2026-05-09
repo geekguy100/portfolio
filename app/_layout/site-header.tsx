@@ -13,7 +13,6 @@ export function SiteHeader() {
           unoptimized
           width={175}
           src={HatLogo}
-          preload
           style={{ animationComposition: "add" }}
           alt="A black hat with wings"
           className="-my-6 sm:my-0 sm:animate-header-enter"
