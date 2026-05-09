@@ -8,7 +8,7 @@ const routes = [
 
 export function NavigationBar() {
   return (
-    <nav>
+    <nav className="mb-2 sm:m-0">
       <ButtonGroup>
         {routes.map((t) => (
           <NavigationButton key={t.href} {...t} />
