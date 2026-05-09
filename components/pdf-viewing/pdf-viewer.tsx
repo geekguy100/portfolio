@@ -4,11 +4,9 @@ import { usePDFDocument, useRenderedPDF } from "@/components/pdf-viewing/hooks/u
 import {
   useCallback,
   useEffect,
-  useRef,
   useState,
   type ComponentPropsWithoutRef,
   type CustomComponentPropsWithRef,
-  type ReactNode,
 } from "react"
 import {
   Carousel,
@@ -92,6 +90,7 @@ function PageViewer({
   ) : (
     <canvas
       {...props}
+      onContextMenu={(ev) => ev.preventDefault()}
       className={cn("mx-auto", className)}
       width={width ?? viewport?.width}
       height={height ?? viewport?.height}
