@@ -8,7 +8,8 @@
         "Released on Steam."
       ],
       "img": "/dgolf.gif",
-      "id": "disastergolf"
+      "id": "disastergolf",
+      "section": "university"
     },
     {
       "title": "Speedrun Shopping",
@@ -17,7 +18,8 @@
         "Created for CIS 497 - Unity Design Patterns for practice working with design patterns on a large-scale project."
       ],
       "img": "/speedrun-shopping.gif",
-      "id": "speedrun-shopping"
+      "id": "speedrun-shopping",
+      "section": "university"
     },
     {
       "title": "Shattered Shards",
@@ -26,7 +28,8 @@
         "Created for IM 488 - Capstone Prototyping to develop prototypes that may be expanded upon senior year."
       ],
       "img": "/shattered-shards.gif",
-      "id": "shattered-shards"
+      "id": "shattered-shards",
+      "section": "university"
     },
     {
       "title": "POWERful Decisions",
@@ -35,7 +38,8 @@
         "Created on commission for the Peoria Park District."
       ],
       "img": "/powerful-decisions.gif",
-      "id": "powerful-decisions"
+      "id": "powerful-decisions",
+      "section": "university"
     },
     {
       "title": "A Drop of Life",
@@ -44,7 +48,8 @@
         "Created for IM 388 - Game Design II to develop prototypes that may be expanded upon in later years."
       ],
       "img": "/drop-of-life.gif",
-      "id": "drop-of-life"
+      "id": "drop-of-life",
+      "section": "university"
     },
     {
       "title": "Sundown Gundown",
@@ -53,7 +58,8 @@
         "Created for IM 488 - Capstone Prototyping to develop prototypes that may be expanded upon senior year."
       ],
       "img": "/sundown-gundown.gif",
-      "id": "sundown-gundown"
+      "id": "sundown-gundown",
+      "section": "university"
     },
     {
       "title": "Mystery at the Murder Motel",
@@ -62,7 +68,8 @@
         "Created for CIS 497 - Unity Design Patterns for practice working with design patterns on a large-scale project."
       ],
       "img": "/mystery-motel.gif",
-      "id": "mystery-motel"
+      "id": "mystery-motel",
+      "section": "university"
     },
     {
       "title": "Project: Ball Barrage",
@@ -71,7 +78,8 @@
         "Created for IM 488 - Capstone Prototyping to develop prototypes that may be expanded upon senior year."
       ],
       "img": "/ball-barrage.gif",
-      "id": "ball-barrage"
+      "id": "ball-barrage",
+      "section": "university"
     },
     {
       "title": "Out of Service",
@@ -80,7 +88,8 @@
         "Created for IM 388 - Game Design II to develop prototypes that may be expanded upon in later years."
       ],
       "img": "/out-of-service.gif",
-      "id": "out-of-service"
+      "id": "out-of-service",
+      "section": "university"
     }
   ]
 }
