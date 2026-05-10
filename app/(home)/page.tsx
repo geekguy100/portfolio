@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
-import AboutMe from "./_components/aboutme"
-import ProjectsShowcase from "./_components/projects"
+import AboutMe from "./_sections/aboutme"
+import ProjectsShowcase from "./_sections/projects"
 
 export const metadata: Metadata = {
   title: "Home | Kyle Grenier",
