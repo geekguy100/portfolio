@@ -12,7 +12,7 @@ export function ShowcasePiece({ title, descriptions, id, img }: ShowcasePiecePro
   return (
     <Link href={`/projects/${id}`}>
       <article className="flex flex-col gap-4 rounded-md p-6 outline-primary hover:outline-3 sm:flex-row">
-        <div className="relative aspect-300/160 size-full max-h-40 max-w-75 flex-none bg-red-500 max-sm:mx-auto">
+        <div className="relative aspect-300/160 size-full max-h-40 max-w-75 flex-none self-center bg-red-500 max-sm:mx-auto">
           <Image fill unoptimized loading="eager" src={img} alt={`Thumbnail for content titled "${title}"`} />
         </div>
 
