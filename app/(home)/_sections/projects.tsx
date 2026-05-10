@@ -4,7 +4,7 @@ import { ProjectTabs, type Section } from "../_components/project-tabs"
 import { useCallback, useState, type ReactNode } from "react"
 
 const descriptions: Record<Section, ReactNode> = {
-  university: "The projects I worked on during my time in university.",
+  university: "Projects I worked on during my time in university",
   aerospace: <AerospaceDescription />,
 }
 
@@ -22,10 +22,13 @@ export default function ProjectsShowcase() {
 
 function AerospaceDescription() {
   return (
-    <div className="flex justify-center gap-2">
-      <span>-</span>
-      <p>Please note that due to the nature of the work conducted, information is limited</p>
-      <span>-</span>
+    <div>
+      <p>Projects I worked on during my time at The Aerospace Corporation</p>
+      <div className="flex justify-center gap-2">
+        <span>-</span>
+        <p className="italic">Please note that due to the nature of the work conducted, information may be limited</p>
+        <span>-</span>
+      </div>
     </div>
   )
 }
