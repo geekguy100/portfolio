@@ -11,21 +11,16 @@ export interface ProjectTabProps {
   defaultValue: Section
 }
 
+const playedAnims = new Set<Section>()
 export function ProjectTabs({ onTabChanged, defaultValue }: ProjectTabProps) {
   const [currentTab, setCurrentTab] = useState<Section>(defaultValue)
-  const [playedAnims, setPlayedAnims] = useState<Section[]>([])
 
   return (
     <Tabs
       onValueChange={(value) => {
         const desiredTab = value as Section
         onTabChanged?.(desiredTab)
-
-        setPlayedAnims((prev) => {
-          if (prev.includes(currentTab)) return prev
-          return [...prev, currentTab]
-        })
-
+        playedAnims.add(currentTab)
         setCurrentTab(desiredTab)
       }}
       value={currentTab}
@@ -41,10 +36,10 @@ export function ProjectTabs({ onTabChanged, defaultValue }: ProjectTabProps) {
         </TabsTrigger>
       </TabsList>
       <TabsContent value="university">
-        <UniversityProjects preventAnim={playedAnims.includes("university")} />
+        <UniversityProjects preventAnim={playedAnims.has("university")} />
       </TabsContent>
       <TabsContent value="aerospace">
-        <AerospaceProjects preventAnim={playedAnims.includes("aerospace")} />
+        <AerospaceProjects preventAnim={playedAnims.has("aerospace")} />
       </TabsContent>
     </Tabs>
   )

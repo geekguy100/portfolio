@@ -1,9 +1,12 @@
+"use client"
 import { ArticleWithIntro } from "@/components/section-with-intro"
 
+// Setting this outside of the component will make sure the animation only plays once during the session.
+let animPlayed = false
 export default function AboutMe() {
   return (
     <ArticleWithIntro title="About Me" id="aboutme">
-      <div className="group-slide">
+      <div onAnimationEnd={() => (animPlayed = true)} className={animPlayed ? "" : "group-slide"}>
         <p className="[--delay-index:0]">
           Hey there! I'm Kyle Grenier, a graduate of Bradley University and an immersive technology developer for The
           Aerospace Corporation based in South California.
