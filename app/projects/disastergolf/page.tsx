@@ -46,11 +46,11 @@ export default function DisasterGolfPage() {
               Hosted sprint retrospectives to discuss the most recent sprint.
               <Responsibilities>
                 <Responsibility>
-                  I made sure that the team knows these discussions are open for anyone to provide feedback.
+                  I made sure that the team knew these discussions were open for anyone to provide feedback.
                 </Responsibility>
               </Responsibilities>
             </Responsibility>
-            <Responsibility>Verified all work meets the discussed vision we have for the game.</Responsibility>
+            <Responsibility>Verified all work meets the discussed vision we had for the game.</Responsibility>
             <Responsibility>
               Managed discipline leads and sub-team leads to make sure the team is not only contributing to the
               project's creative vision but learning along the way.
@@ -60,21 +60,18 @@ export default function DisasterGolfPage() {
         <ProjectRole>
           <ProjectRoleHeader>Lead Producer</ProjectRoleHeader>
           <Responsibilities>
+            <Responsibility>Created and managed our ClickUp page.</Responsibility>
             <Responsibility>
               Frequently checked in with individual team members to ensure work is being completed as expected.
             </Responsibility>
-            <Responsibility>Verified all work meets the discussed vision we have for the game.</Responsibility>
             <Responsibility>
-              Notifies team members that any/all of their opinions are valid and will be taken into consideration.
+              Notified team members that any/all of their opinions were valid and would be taken into consideration.
               <Responsibilities>
                 <Responsibility>
                   I want people to be excited to work on this project. I want them to take ownership of their work and
                   feel like they are contributing to something amazing.
                 </Responsibility>
               </Responsibilities>
-            </Responsibility>
-            <Responsibility>
-              Makes sure the team is not only contributing to the project but learning along the way.
             </Responsibility>
           </Responsibilities>
         </ProjectRole>
@@ -94,7 +91,6 @@ export default function DisasterGolfPage() {
             <Responsibility>
               Created anonymous feedback form where the team can privately express concerns and considerations.
             </Responsibility>
-            <Responsibility>Created and managed our ClickUp page.</Responsibility>
           </Responsibilities>
         </ProjectRole>
       </ProjectRoles>
@@ -156,7 +152,6 @@ export default function DisasterGolfPage() {
                 </Responsibility>
               </Responsibilities>
             </Responsibility>
-            <Responsibility>Created and managed our ClickUp page.</Responsibility>
           </Responsibilities>
         </ProjectRole>
       </ProjectRoles>
