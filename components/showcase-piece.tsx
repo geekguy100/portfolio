@@ -1,6 +1,9 @@
+"use client"
+import { childSlideInVariants, containerSlideInVariants, slideInProps } from "@/lib/animation"
+import { motion } from "motion/react"
 import Image from "next/image"
 import Link from "next/link"
-import { type CSSProperties } from "react"
+import SlideInContainer from "./slide-in-container"
 
 export interface ShowcasePieceProps {
   title: string
@@ -11,8 +14,6 @@ export interface ShowcasePieceProps {
 }
 
 export function ShowcasePiece({ title, descriptions, id, img, animIndex }: ShowcasePieceProps) {
-  const slideStyle = animIndex === undefined ? undefined : ({ "--base-delay": `${animIndex * 400}ms` } as CSSProperties)
-
   return (
     <Link href={`/projects/${id}`}>
       <article className="flex flex-col gap-4 rounded-md p-6 outline-primary hover:outline-3 sm:flex-row">
@@ -20,17 +21,18 @@ export function ShowcasePiece({ title, descriptions, id, img, animIndex }: Showc
           <Image fill unoptimized loading="eager" src={img} alt={`Thumbnail for content titled "${title}"`} />
         </div>
 
-        <div className={animIndex !== undefined ? "group-slide" : ""} style={slideStyle}>
-          <h3 className="text-center sm:text-left">{title}</h3>
+        <SlideInContainer>
+          <motion.h3 variants={containerSlideInVariants} className="text-center sm:text-left">
+            {title}
+          </motion.h3>
           {descriptions.map((desc, i) => {
-            const style = { "--delay-index": i + 1 } as CSSProperties
             return (
-              <p key={i} style={style}>
+              <motion.p variants={childSlideInVariants} key={i}>
                 {desc}
-              </p>
+              </motion.p>
             )
           })}
-        </div>
+        </SlideInContainer>
       </article>
     </Link>
   )

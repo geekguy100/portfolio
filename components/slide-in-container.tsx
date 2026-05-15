@@ -11,13 +11,20 @@ export default function SlideInContainer({
 }: CustomComponentPropsWithRef<typeof motion.div> & { stagger?: number; startDelay?: number }) {
   const memoizedAnimateProps: typeof containerSlideInProps = useMemo(() => {
     if (stagger !== undefined || startDelay !== undefined) {
-      const customSlideInProps: Mutatable<typeof containerSlideInProps> = { ...containerSlideInProps }
-      customSlideInProps.variants.visible.transition.delayChildren = motionStagger(stagger ?? DEFAULT_STAGGER, {
+      const customTransition = { ...containerSlideInProps.variants.visible.transition }
+      customTransition.delayChildren = motionStagger(stagger ?? DEFAULT_STAGGER, {
         startDelay: startDelay ?? DEFAULT_START_DELAY,
       })
 
+      const visible: Mutatable<typeof containerSlideInProps.variants.visible> = {
+        ...containerSlideInProps.variants.visible,
+      }
+      visible.transition = customTransition
+      const variants: Mutatable<typeof containerSlideInProps.variants> = { ...containerSlideInProps.variants }
+      variants.visible = visible
+
       // We cast to make TypeScript consider the object no longer mutatable - this will prevent type-checking errors.
-      return customSlideInProps as typeof containerSlideInProps
+      return { ...containerSlideInProps, variants } as typeof containerSlideInProps
     }
 
     return containerSlideInProps

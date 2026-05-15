@@ -4,6 +4,7 @@ import { BookIcon, SatelliteIcon } from "lucide-react"
 import { ShowcasePiece } from "@/components/showcase-piece"
 import { content } from "@/misc/showcase.json"
 import { useState } from "react"
+import { MotionConfig } from "motion/react"
 
 export type Section = "university" | "aerospace"
 export interface ProjectTabProps {
@@ -11,7 +12,6 @@ export interface ProjectTabProps {
   defaultValue: Section
 }
 
-const playedAnims = new Set<Section>()
 export function ProjectTabs({ onTabChanged, defaultValue }: ProjectTabProps) {
   const [currentTab, setCurrentTab] = useState<Section>(defaultValue)
 
@@ -20,7 +20,6 @@ export function ProjectTabs({ onTabChanged, defaultValue }: ProjectTabProps) {
       onValueChange={(value) => {
         const desiredTab = value as Section
         onTabChanged?.(desiredTab)
-        playedAnims.add(currentTab)
         setCurrentTab(desiredTab)
       }}
       value={currentTab}
@@ -36,27 +35,31 @@ export function ProjectTabs({ onTabChanged, defaultValue }: ProjectTabProps) {
         </TabsTrigger>
       </TabsList>
       <TabsContent value="university">
-        <UniversityProjects preventAnim={playedAnims.has("university")} />
+        <UniversityProjects />
       </TabsContent>
       <TabsContent value="aerospace">
-        <AerospaceProjects preventAnim={playedAnims.has("aerospace")} />
+        <AerospaceProjects />
       </TabsContent>
     </Tabs>
   )
 }
 
-function UniversityProjects({ preventAnim }: { preventAnim: boolean }) {
-  return <GeneralPiece preventAnim={preventAnim} section="university" />
+function UniversityProjects() {
+  return <GeneralPiece section="university" />
 }
 
-function AerospaceProjects({ preventAnim }: { preventAnim: boolean }) {
-  return <GeneralPiece preventAnim={preventAnim} section="aerospace" />
+function AerospaceProjects() {
+  return <GeneralPiece section="aerospace" />
 }
 
-function GeneralPiece({ section, preventAnim }: { section: string; preventAnim: boolean }) {
+function GeneralPiece({ section }: { section: string }) {
   const pieces = content
     .filter((piece) => piece.section === section)
-    .map((piece, i) => <ShowcasePiece animIndex={preventAnim ? undefined : i + 1} key={piece.id} {...piece} />)
+    .map((piece, i) => (
+      <MotionConfig key={piece.id}>
+        <ShowcasePiece animIndex={i + 1} {...piece} />
+      </MotionConfig>
+    ))
 
   return pieces.length > 0 ? pieces : <p className="text-center">There's nothing here yet</p>
 }
