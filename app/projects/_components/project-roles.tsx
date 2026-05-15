@@ -2,8 +2,9 @@
 import { SectionTitle } from "@/components/section-title"
 import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
-import type { CustomComponentPropsWithRef, PropsWithChildren } from "react"
-import { childSlideInProps, containerSlideInProps } from "@/lib/animation"
+import type { ComponentPropsWithoutRef, CustomComponentPropsWithRef, PropsWithChildren } from "react"
+import { childFadeInVariants, childSlideInProps, containerSlideInProps } from "@/lib/animation"
+import SlideInContainer from "@/components/slide-in-container"
 
 export function ProjectRoles({ title, children }: PropsWithChildren & { title?: string }) {
   return (
@@ -15,30 +16,22 @@ export function ProjectRoles({ title, children }: PropsWithChildren & { title?: 
 }
 
 export function ProjectRole({ children }: PropsWithChildren) {
-  return <div>{children}</div>
+  return <SlideInContainer>{children}</SlideInContainer>
 }
 
 export function ProjectRoleHeader({ className, children, ...props }: CustomComponentPropsWithRef<typeof motion.h4>) {
   return (
-    <motion.h4 className={cn("underline", className)} {...props}>
+    <motion.h4 variants={childFadeInVariants} className={cn("underline", className)} {...props}>
       {children}
     </motion.h4>
   )
 }
 
-export function ProjectRoleResponsibilities({
-  className,
-  children,
-  ...props
-}: CustomComponentPropsWithRef<typeof motion.ul>) {
+export function ProjectRoleResponsibilities({ className, children, ...props }: ComponentPropsWithoutRef<"ul">) {
   return (
-    <motion.ul
-      className={cn("list-disc [&_ul]:ml-4 [&_ul]:list-[circle]", className)}
-      {...containerSlideInProps}
-      {...props}
-    >
+    <ul className={cn("list-disc [&_ul]:ml-4 [&_ul]:list-[circle]", className)} {...props}>
       {children}
-    </motion.ul>
+    </ul>
   )
 }
 

@@ -1,6 +1,9 @@
+"use client"
 import { SectionTitle } from "@/components/section-title"
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { childFadeInVariants, childSlideInVariants } from "@/lib/animation"
+import { motion } from "motion/react"
 
 type ContentItem =
   | {
@@ -19,8 +22,8 @@ type ExternalContentItem = {
 export type ProjectGameplayProps = { content: ContentItem[] }
 export function ProjectGameplay({ content }: ProjectGameplayProps) {
   return (
-    <section>
-      <SectionTitle>Gameplay</SectionTitle>
+    <article>
+      <SectionTitle variants={childFadeInVariants}>Gameplay</SectionTitle>
       <Carousel className="mx-auto">
         <CarouselContent>
           {content.map((t, i) => (
@@ -28,9 +31,9 @@ export function ProjectGameplay({ content }: ProjectGameplayProps) {
               <div className="flex h-full items-center justify-center">
                 {isUrl(t.src) && <EmbeddedGameplay {...t} />}
                 {!isUrl(t.src) && (
-                  <div className="relative size-full">
+                  <motion.div variants={childFadeInVariants} className="relative size-full">
                     {t.mimeType!.includes("video") ? <VideoItem item={t} /> : <ImgItem item={t} />}
-                  </div>
+                  </motion.div>
                 )}
               </div>
             </CarouselItem>
@@ -43,7 +46,7 @@ export function ProjectGameplay({ content }: ProjectGameplayProps) {
           </>
         )}
       </Carousel>
-    </section>
+    </article>
   )
 }
 

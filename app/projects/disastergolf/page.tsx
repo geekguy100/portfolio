@@ -13,6 +13,7 @@ import { Project } from "../_components/project-wrapper"
 import { SectionTitle } from "@/components/section-title"
 import { PopupImage } from "@/components/popup-image"
 import { PdfViewer } from "@/components/pdf-viewing/pdf-viewer-lazy"
+import { MotionArticleContainer } from "../_components/motion-article-container"
 
 export const metadata = getProjectMetdata("disastergolf")
 
@@ -155,7 +156,7 @@ export default function DisasterGolfPage() {
           </Responsibilities>
         </ProjectRole>
       </ProjectRoles>
-      <article>
+      <MotionArticleContainer>
         <SectionTitle>Disasters UML Diagram</SectionTitle>
         <PopupImage
           width={809}
@@ -165,7 +166,7 @@ export default function DisasterGolfPage() {
           className="mx-auto"
           title="Disasters UML Diagram"
         />
-      </article>
+      </MotionArticleContainer>
       <article>
         <SectionTitle>Code Documentation</SectionTitle>
         <PdfViewer showPageNumber downloadable fileName="Disaster Golf Code Documentation" src="/dgcodedocs.pdf" />

@@ -1,12 +1,12 @@
 "use client"
 import { SectionTitle } from "@/components/section-title"
-import { childSlideInProps, containerSlideInVariants } from "@/lib/animation"
+import { childSlideInProps, containerSlideInProps } from "@/lib/animation"
 import { cn } from "@/lib/utils"
 import { motion } from "motion/react"
 import type { PropsWithChildren } from "react"
 
 export function ProjectIntro({ children }: PropsWithChildren) {
-  return <div>{children}</div>
+  return <motion.div>{children}</motion.div>
 }
 
 export function ProjectTitle({ children }: PropsWithChildren) {

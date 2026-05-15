@@ -1,7 +1,10 @@
+"use client"
 import { SteamIcon } from "@/components/brand-icons"
 import { NavigationButton } from "@/components/nav-button"
 import { SectionTitle } from "@/components/section-title"
-import type { ReactNode } from "react"
+import { childFadeInVariants, containerSlideInVariants } from "@/lib/animation"
+import { motion } from "motion/react"
+import { type ReactNode } from "react"
 
 type EmbeddedDemoProps = { type: "embed"; children: ReactNode } & Omit<LocalDownloadProps, "steamLink">
 type DownloadDemoProps = { type: "download" } & (LocalDownloadProps | SteamDownloadProps)
@@ -25,9 +28,10 @@ function DownloadDemo(props: DownloadDemoProps) {
 }
 
 function LocalDownload({ downloadLink, githubLink }: LocalDownloadProps) {
-  const numCols = githubLink && downloadLink ? "grid-cols-2" : "grid-cols-1"
+  const hasBoth = downloadLink && githubLink
+  const numCols = hasBoth ? "grid-cols-2" : "grid-cols-1"
   return (
-    <div className={`grid gap-4 ${numCols}`}>
+    <motion.div variants={childFadeInVariants} className={`grid gap-4 ${numCols}`}>
       {githubLink !== "" && (
         <NavigationButton newTab href={githubLink}>
           View on GitHub
@@ -38,7 +42,7 @@ function LocalDownload({ downloadLink, githubLink }: LocalDownloadProps) {
           Download
         </NavigationButton>
       )}
-    </div>
+    </motion.div>
   )
 }
 

@@ -24,6 +24,7 @@ export const containerSlideInProps = {
 } as const satisfies CustomComponentPropsWithRef<typeof motion.div>
 //#endregion
 
+//#region Children
 export const childSlideInVariants = {
   hidden: { opacity: 0, translateX: -50 },
   visible: {
@@ -31,9 +32,14 @@ export const childSlideInVariants = {
     translateX: 0,
   },
 } as const satisfies Variants
-
-//#region Children
 export const childSlideInProps = {
   variants: childSlideInVariants,
 }
+
+export const childFadeInVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+  },
+} as const satisfies Variants
 //#endregion
