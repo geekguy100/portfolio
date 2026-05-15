@@ -12,6 +12,8 @@ import {
   ProjectRoleResponsibility as Responsibility,
   ProjectRoles,
 } from "../_components/project-roles"
+import { MotionArticleContainer } from "../_components/motion-article-container"
+import { MotionPdfViewer } from "../_components/motion-pdf-viewer"
 
 export const metadata = getProjectMetdata("speedrun-shopping")
 
@@ -64,15 +66,15 @@ export default function SpeedrunShoppingPage() {
           </Responsibilities>
         </ProjectRole>
       </ProjectRoles>
-      <article>
+      <MotionArticleContainer>
         <SectionTitle>Design Documentation</SectionTitle>
-        <PdfViewer
+        <MotionPdfViewer
           showPageNumber
           downloadable
           fileName="Speedrun Shopping Design Docs"
           src="/speedrunshopping_docs.pdf"
         />
-      </article>
+      </MotionArticleContainer>
       <ProjectFooter href="https://drive.google.com/drive/u/0/folders/1c30YEPJtQDrso8lM7uSEHH6bER8n0z2q" />
     </Project>
   )
