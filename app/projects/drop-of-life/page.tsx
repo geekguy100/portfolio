@@ -14,6 +14,8 @@ import { SectionTitle } from "@/components/section-title"
 import { PopupImage } from "@/components/popup-image"
 import { PdfViewer } from "@/components/pdf-viewing/pdf-viewer-lazy"
 import { ProjectFooter } from "../_components/project-footer"
+import { MotionArticleContainer } from "../_components/motion-article-container"
+import { MotionPdfViewer } from "../_components/motion-pdf-viewer"
 
 export const metadata = getProjectMetdata("drop-of-life")
 
@@ -66,7 +68,7 @@ export default function DropOfLifePage() {
       </ProjectRoles>
       <article>
         <SectionTitle>Documentation</SectionTitle>
-        <PdfViewer
+        <MotionPdfViewer
           showPageNumber
           downloadable
           fileName="A Drop of Life Design Pattern Overview"
@@ -75,7 +77,12 @@ export default function DropOfLifePage() {
       </article>
       <article>
         <SectionTitle>Design Briefs</SectionTitle>
-        <PdfViewer showPageNumber downloadable fileName="A Drop of Life Design Briefs" src="/dropoflife-briefs.pdf" />
+        <MotionPdfViewer
+          showPageNumber
+          downloadable
+          fileName="A Drop of Life Design Briefs"
+          src="/dropoflife-briefs.pdf"
+        />
       </article>
       <ProjectFooter href="https://drive.google.com/drive/folders/1JxXxhAGcoq3D6GyPBUMfFaCfe9vpgaRd?usp=sharing" />
     </Project>
