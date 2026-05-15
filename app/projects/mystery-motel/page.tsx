@@ -13,6 +13,8 @@ import {
   ProjectRoles,
 } from "../_components/project-roles"
 import Link from "next/link"
+import { MotionArticleContainer } from "../_components/motion-article-container"
+import { MotionPdfViewer } from "../_components/motion-pdf-viewer"
 
 export const metadata = getProjectMetdata("mystery-motel")
 
@@ -84,15 +86,15 @@ export default function MysteryMotelPage() {
         </ProjectRole>
       </ProjectRoles>
 
-      <article>
+      <MotionArticleContainer>
         <SectionTitle>Design Documentation</SectionTitle>
-        <PdfViewer
+        <MotionPdfViewer
           showPageNumber
           downloadable
           fileName="Mystery at the Murder Motel Design Docs"
           src="/mysterymotel-design.pdf"
         />
-      </article>
+      </MotionArticleContainer>
       <ProjectFooter href="https://drive.google.com/drive/u/0/folders/1DGNkt5FHlMdwJEfBSVksHEKsVeJhthUF" />
     </Project>
   )
