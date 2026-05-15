@@ -1,5 +1,5 @@
 "use client"
-import { MotionArticle } from "@/components/motion-article"
+import { MotionArticle } from "@/components/motion-primitives"
 import { containerSlideInProps } from "@/lib/animation"
 import type { CustomComponentPropsWithRef } from "react"
 
