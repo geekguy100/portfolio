@@ -2,7 +2,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { BookIcon, SatelliteIcon } from "lucide-react"
 import { ShowcasePiece } from "@/components/showcase-piece"
 import { content } from "@/misc/showcase.json"
-import { MotionConfig } from "motion/react"
 
 export type Section = "university" | "aerospace"
 export interface ProjectTabProps {
@@ -44,11 +43,7 @@ function AerospaceProjects() {
 function GeneralPiece({ section }: { section: string }) {
   const pieces = content
     .filter((piece) => piece.section === section)
-    .map((piece) => (
-      <MotionConfig key={piece.id}>
-        <ShowcasePiece {...piece} />
-      </MotionConfig>
-    ))
+    .map((piece) => <ShowcasePiece key={piece.id} {...piece} />)
 
   return pieces.length > 0 ? pieces : <p className="text-center">There's nothing here yet</p>
 }
