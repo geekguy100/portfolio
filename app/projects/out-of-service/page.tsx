@@ -2,7 +2,6 @@ import { getProjectMetdata } from "@/lib/helpers"
 import { PlayProject } from "../_components/play-project"
 import { ProjectIntro, ProjectTitle, ProjectDescription } from "../_components/project-intro"
 import { Project } from "../_components/project-wrapper"
-import { PdfViewer } from "@/components/pdf-viewing/pdf-viewer-lazy"
 import { SectionTitle } from "@/components/section-title"
 import { ProjectFooter } from "../_components/project-footer"
 import {
@@ -14,6 +13,16 @@ import {
 } from "../_components/project-roles"
 import Link from "next/link"
 import { ProjectGameplay } from "../_components/project-gameplay"
+import { childSlideInVariants } from "@/lib/animation"
+import {
+  MotionArticle,
+  MotionBlockquote,
+  MotionDiv,
+  MotionHeader5,
+  MotionParagraph,
+} from "@/components/motion-primitives"
+import { MotionArticleContainer } from "../_components/motion-article-container"
+import { MotionPdfViewer } from "../_components/motion-pdf-viewer"
 
 export const metadata = getProjectMetdata("out-of-service")
 
@@ -48,19 +57,27 @@ export default function OutOfServicePage() {
 
       <article className="space-y-2">
         <SectionTitle>Praise for Out Of Service</SectionTitle>
-        <article>
-          <h5>Free Game Planet</h5>
-          <blockquote cite="https://www.freegameplanet.com/out-of-service-downloadable-game/" className="italic">
+        <MotionArticle>
+          <MotionHeader5 variants={childSlideInVariants}>Free Game Planet</MotionHeader5>
+          <MotionBlockquote
+            variants={childSlideInVariants}
+            cite="https://www.freegameplanet.com/out-of-service-downloadable-game/"
+            className="italic"
+          >
             Out of Service is a wonderfully silly and knowingly cheesy 90's styled FMV adventure where things get very
             weird as you and your mildly psychotic friend set out to do some laundry.
-          </blockquote>
-          <Link className="underline" href="https://www.freegameplanet.com/out-of-service-downloadable-game/">
-            https://www.freegameplanet.com/out-of-service-downloadable-game/
-          </Link>
-        </article>
+          </MotionBlockquote>
+          <MotionDiv variants={childSlideInVariants}>
+            <Link className="underline" href="https://www.freegameplanet.com/out-of-service-downloadable-game/">
+              https://www.freegameplanet.com/out-of-service-downloadable-game/
+            </Link>
+          </MotionDiv>
+        </MotionArticle>
         <article>
-          <h5>YouTube Playthrough</h5>
-          <p className="italic">- Ya Pal Korin</p>
+          <MotionHeader5 variants={childSlideInVariants}>YouTube Playthrough</MotionHeader5>
+          <MotionParagraph variants={childSlideInVariants} className="italic">
+            - Ya Pal Korin
+          </MotionParagraph>
           <ProjectGameplay
             content={[
               {
@@ -93,10 +110,10 @@ export default function OutOfServicePage() {
         </ProjectRole>
       </ProjectRoles>
 
-      <article>
+      <MotionArticleContainer>
         <SectionTitle>FMV Maker Tools Documentation</SectionTitle>
-        <PdfViewer showPageNumber downloadable fileName="FMV Maker Tools Documentation" src="/fmv-docs.pdf" />
-      </article>
+        <MotionPdfViewer showPageNumber downloadable fileName="FMV Maker Tools Documentation" src="/fmv-docs.pdf" />
+      </MotionArticleContainer>
       <ProjectFooter href="https://drive.google.com/drive/folders/15nndCQTnqM_eK1M2GP7vSmePMREDLYCR?usp=sharing" />
     </Project>
   )
