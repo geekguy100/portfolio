@@ -2,7 +2,6 @@ import { getProjectMetdata } from "@/lib/helpers"
 import { PlayProject } from "../_components/play-project"
 import { ProjectIntro, ProjectTitle, ProjectDescription } from "../_components/project-intro"
 import { Project } from "../_components/project-wrapper"
-import { PdfViewer } from "@/components/pdf-viewing/pdf-viewer-lazy"
 import { SectionTitle } from "@/components/section-title"
 import { ProjectFooter } from "../_components/project-footer"
 import {
@@ -13,6 +12,8 @@ import {
   ProjectRoles,
 } from "../_components/project-roles"
 import { ProjectGameplay } from "../_components/project-gameplay"
+import { MotionArticleContainer } from "../_components/motion-article-container"
+import { MotionPdfViewer } from "../_components/motion-pdf-viewer"
 
 export const metadata = getProjectMetdata("ball-barrage")
 
@@ -56,15 +57,25 @@ export default function BallBarragePage() {
         </ProjectRole>
       </ProjectRoles>
 
-      <article>
+      <MotionArticleContainer>
         <SectionTitle>Design Documentation</SectionTitle>
-        <PdfViewer showPageNumber downloadable fileName="Ball Barrage Design Docs" src="/ballbarrage-design.pdf" />
-      </article>
+        <MotionPdfViewer
+          showPageNumber
+          downloadable
+          fileName="Ball Barrage Design Docs"
+          src="/ballbarrage-design.pdf"
+        />
+      </MotionArticleContainer>
 
-      <article>
+      <MotionArticleContainer>
         <SectionTitle>Final Changes</SectionTitle>
-        <PdfViewer showPageNumber downloadable fileName="Ball Barrage Final Changes" src="/ballbarrage-final.pdf" />
-      </article>
+        <MotionPdfViewer
+          showPageNumber
+          downloadable
+          fileName="Ball Barrage Final Changes"
+          src="/ballbarrage-final.pdf"
+        />
+      </MotionArticleContainer>
 
       <ProjectFooter href="https://drive.google.com/drive/folders/1wZLp4Qis0brMEPaf6uy0Qv4K1j_MN0PR?usp=sharing" />
     </Project>
