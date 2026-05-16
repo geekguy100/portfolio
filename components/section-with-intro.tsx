@@ -2,8 +2,7 @@
 import type { PropsWithChildren, ReactNode } from "react"
 import { Article } from "./containers"
 import { SECTION_MARGIN_BOTTOM, SectionTitle } from "./section-title"
-import { childFadeInVariants } from "@/lib/animation"
-import SlideInContainer from "./slide-in-container"
+import { childFadeInVariants, containerSlideInProps } from "@/lib/animation"
 import { motion } from "motion/react"
 
 export interface ShowcaseSectionProps extends PropsWithChildren {
@@ -14,8 +13,8 @@ export interface ShowcaseSectionProps extends PropsWithChildren {
 
 export function ArticleWithIntro({ title, description, id, children }: ShowcaseSectionProps) {
   return (
-    <Article className="relative" id={id}>
-      <SlideInContainer className={`text-center ${description && SECTION_MARGIN_BOTTOM}`}>
+    <Article {...containerSlideInProps} className="relative" id={id}>
+      <div className={`text-center ${description && SECTION_MARGIN_BOTTOM}`}>
         <SectionTitle variants={childFadeInVariants} className={description !== undefined ? "mb-0" : ""}>
           {title}
         </SectionTitle>
@@ -24,7 +23,7 @@ export function ArticleWithIntro({ title, description, id, children }: ShowcaseS
         ) : (
           description
         )}
-      </SlideInContainer>
+      </div>
       {children}
     </Article>
   )
