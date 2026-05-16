@@ -1,4 +1,4 @@
-import type { LucideProps } from "lucide-react"
+import { type LucideProps } from "lucide-react"
 
 //Source: https://brand.github.com/foundations/logo
 export function GitHubIcon(props: LucideProps) {

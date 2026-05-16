@@ -2,6 +2,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { BookIcon, SatelliteIcon } from "lucide-react"
 import { ShowcasePiece } from "@/components/showcase-piece"
 import { content } from "@/misc/showcase.json"
+import type { ReactNode } from "react"
+import { SteamIcon } from "@/components/brand-icons"
 
 export type Section = "university" | "aerospace"
 export interface ProjectTabProps {
@@ -43,7 +45,12 @@ function AerospaceProjects() {
 function GeneralPiece({ section }: { section: string }) {
   const pieces = content
     .filter((piece) => piece.section === section)
-    .map((piece) => <ShowcasePiece key={piece.id} {...piece} />)
+    .map((piece) => <ShowcasePiece key={piece.id} icon={getPieceIcon(piece.id)} {...piece} />)
 
   return pieces.length > 0 ? pieces : <p className="text-center">There's nothing here yet</p>
+}
+
+function getPieceIcon(id: string): ReactNode | undefined {
+  if (id !== "disastergolf") return undefined
+  return <SteamIcon />
 }
