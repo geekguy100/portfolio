@@ -1,11 +1,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { BookIcon, SatelliteIcon } from "lucide-react"
+import { BookIcon, HouseIcon, SatelliteIcon } from "lucide-react"
 import { ShowcasePiece } from "@/components/showcase-piece"
 import { content } from "@/misc/showcase.json"
-import type { ReactNode } from "react"
 import { SteamIcon } from "@/components/brand-icons"
+import type { ReactNode } from "react"
 
-export type Section = "university" | "aerospace"
+export type Section = "university" | "aerospace" | "personal"
 export interface ProjectTabProps {
   onTabChanged?(value: Section): void
   defaultValue: Section
@@ -23,11 +23,18 @@ export function ProjectTabs({ onTabChanged, defaultValue }: ProjectTabProps) {
           <SatelliteIcon />
           Aerospace
         </TabsTrigger>
+        <TabsTrigger value="personal">
+          <HouseIcon />
+          Personal
+        </TabsTrigger>
       </TabsList>
       <TabsContent value="university">
         <UniversityProjects />
       </TabsContent>
       <TabsContent value="aerospace">
+        <AerospaceProjects />
+      </TabsContent>
+      <TabsContent value="personal">
         <AerospaceProjects />
       </TabsContent>
     </Tabs>

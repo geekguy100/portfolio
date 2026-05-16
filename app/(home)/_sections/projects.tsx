@@ -8,6 +8,7 @@ import { childFadeInVariants } from "@/lib/animation"
 const descriptions: Record<Section, ReactNode> = {
   university: <UniversityDescription />,
   aerospace: <AerospaceDescription />,
+  personal: <PersonalDescription />,
 }
 
 const DEFAULT_SECTION: Section = "university"
@@ -25,6 +26,14 @@ export default function ProjectsShowcase() {
 function UniversityDescription() {
   return (
     <MotionParagraph variants={childFadeInVariants}>Projects I worked on during my time in university</MotionParagraph>
+  )
+}
+
+function PersonalDescription() {
+  return (
+    <MotionParagraph variants={childFadeInVariants}>
+      Projects that I have or am currently working on outside of work
+    </MotionParagraph>
   )
 }
 
