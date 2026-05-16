@@ -31,7 +31,7 @@ export function ProjectGameplay({ content }: ProjectGameplayProps) {
               <div className="flex h-full items-center justify-center">
                 {isUrl(t.src) && <EmbeddedGameplay {...t} />}
                 {!isUrl(t.src) && (
-                  <motion.div variants={childFadeInVariants} className="relative size-full">
+                  <motion.div variants={childFadeInVariants} className="relative aspect-video w-125 lg:w-200">
                     {t.mimeType!.includes("video") ? <VideoItem item={t} /> : <ImgItem item={t} />}
                   </motion.div>
                 )}
@@ -57,7 +57,7 @@ interface ItemProps {
 function VideoItem({ item }: ItemProps) {
   const { mimeType, title, src } = item
   return (
-    <video className="mx-auto aspect-video w-125 lg:w-200" controls title={title} width={1120}>
+    <video className="mx-auto" controls title={title}>
       <source src={src} type={mimeType} />
       <p>Your browser does not support video playback</p>
     </video>
