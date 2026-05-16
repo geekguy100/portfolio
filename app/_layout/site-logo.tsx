@@ -7,9 +7,9 @@ export function SiteLogo() {
   return (
     <div className="flex flex-col items-center justify-center sm:items-end">
       <MotionDiv
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ scale: { type: "spring", visualDuration: 0.25, bounce: 0.8 } }}
+        initial={{ translateX: "-50vw" }}
+        animate={{ translateX: "0vw" }}
+        transition={{ translateX: { type: "spring", mass: 1.5, stiffness: 75 } }}
       >
         <Image unoptimized width={175} src={HatLogo} alt="A black hat with wings" className={`-my-6 sm:my-0`} />
       </MotionDiv>
