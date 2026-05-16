@@ -84,12 +84,21 @@
     {
       "title": "Out of Service",
       "descriptions": [
-        "A rapidly developed prototype made in around three weeks. Control the fates of a cast of wacky characters through a series of unorthodox encounters. ",
+        "A rapidly developed prototype made in around three weeks. Control the fates of a cast of wacky characters through a series of unorthodox encounters.",
         "Created for IM 388 - Game Design II to develop prototypes that may be expanded upon in later years."
       ],
       "img": "/out-of-service.gif",
       "id": "out-of-service",
       "section": "university"
+    },
+    {
+      "title": "Raycasting Engine",
+      "descriptions": [
+        "An in-progress game engine written in C using OpenGL and raycasting techniques from games such as Wolfenstein 3D."
+      ],
+      "img": "/out-of-service.gif",
+      "id": "raycast-engine",
+      "section": "personal"
     }
   ]
 }
