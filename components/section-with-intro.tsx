@@ -2,7 +2,7 @@
 import type { PropsWithChildren, ReactNode } from "react"
 import { Article } from "./containers"
 import { SECTION_MARGIN_BOTTOM, SectionTitle } from "./section-title"
-import { childFadeInVariants, childSlideInVariants } from "@/lib/animation"
+import { childFadeInVariants } from "@/lib/animation"
 import SlideInContainer from "./slide-in-container"
 import { motion } from "motion/react"
 
@@ -20,7 +20,7 @@ export function ArticleWithIntro({ title, description, id, children }: ShowcaseS
           {title}
         </SectionTitle>
         {typeof description === "string" ? (
-          <motion.p variants={childSlideInVariants}>{description}</motion.p>
+          <motion.p variants={childFadeInVariants}>{description}</motion.p>
         ) : (
           description
         )}
