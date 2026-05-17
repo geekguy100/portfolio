@@ -11,12 +11,12 @@ type DownloadDemoProps = { type: "download" } & (LocalDownloadProps | SteamDownl
 type SteamDownloadProps = { steamLink: string; githubLink?: never; downloadLink?: never }
 type LocalDownloadProps = { githubLink: string; downloadLink: string; steamLink?: never }
 
-export type PlayProjectProps = EmbeddedDemoProps | DownloadDemoProps
-export function PlayProject(props: PlayProjectProps) {
+export type PlayProjectProps = { title?: string } & (EmbeddedDemoProps | DownloadDemoProps)
+export function PlayProject({ title, ...props }: PlayProjectProps) {
   const { type } = props
   return (
     <div className="flex flex-col items-center">
-      <SectionTitle>Play the Game</SectionTitle>
+      <SectionTitle>{title ?? "Play the Game"}</SectionTitle>
       {type === "download" && <DownloadDemo {...props} />}
       {type === "embed" && <EmbeddedProject {...props} />}
     </div>
