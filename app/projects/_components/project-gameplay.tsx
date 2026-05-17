@@ -2,9 +2,8 @@
 import { SectionTitle } from "@/components/section-title"
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { childFadeInVariants, childSlideInVariants } from "@/lib/animation"
+import { childFadeInVariants } from "@/lib/animation"
 import { motion } from "motion/react"
-import { caption } from "motion/react-client"
 
 type ContentItem = { caption?: string } & (
   | {
@@ -26,29 +25,27 @@ export function ProjectGameplay({ content, title }: ProjectGameplayProps) {
   return (
     <article>
       <SectionTitle variants={childFadeInVariants}>{title ?? "Gameplay"}</SectionTitle>
-      <motion.div className="mx-auto max-w-xl" variants={childFadeInVariants}>
+      <motion.div className="mx-auto max-w-4xl max-lg:px-12" variants={childFadeInVariants}>
         <Carousel>
           <CarouselContent>
             {content.map((t, i) => (
               <CarouselItem key={i}>
-                <div className="flex h-full items-center justify-center">
-                  <div className="aspect-video w-125 lg:w-200">
-                    {isUrl(t.src) && <EmbeddedGameplay {...t} />}
-                    {!isUrl(t.src) && (
-                      <div className="flex size-full flex-col">
-                        <div className="relative size-full">
-                          {t.mimeType!.includes("video") ? <VideoItem item={t} /> : <ImgItem item={t} />}
-                        </div>
-                        {t.caption && <p className="text-center text-sm italic">{t.caption}</p>}
+                <div className="aspect-video">
+                  {isUrl(t.src) && <EmbeddedGameplay {...t} />}
+                  {!isUrl(t.src) && (
+                    <div className="flex size-full flex-col">
+                      <div className="relative size-full">
+                        {t.mimeType!.includes("video") ? <VideoItem item={t} /> : <ImgItem item={t} />}
                       </div>
-                    )}
-                  </div>
+                      {t.caption && <p className="text-center text-sm italic">{t.caption}</p>}
+                    </div>
+                  )}
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
           {content.length > 1 && (
-            <div className="hidden sm:block">
+            <div className="max-sm:hidden">
               <CarouselPrevious size="icon-lg" />
               <CarouselNext size="icon-lg" />
             </div>
