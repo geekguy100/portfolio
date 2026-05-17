@@ -27,12 +27,8 @@ export function ProjectRoleHeader({ className, children, ...props }: CustomCompo
   )
 }
 
-export function ProjectRoleResponsibilities({ className, children, ...props }: ComponentPropsWithoutRef<"ul">) {
-  return (
-    <ul className={cn("list-disc [&_ul]:ml-4 [&_ul]:list-[circle]", className)} {...props}>
-      {children}
-    </ul>
-  )
+export function ProjectRoleResponsibilities({ children, ...props }: ComponentPropsWithoutRef<"ul">) {
+  return <ul {...props}>{children}</ul>
 }
 
 export function ProjectRoleResponsibility(props: CustomComponentPropsWithRef<typeof motion.li>) {

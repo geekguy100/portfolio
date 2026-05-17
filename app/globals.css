@@ -143,6 +143,9 @@
   h4 {
     @apply text-xl;
   }
+  ul {
+    @apply list-disc [&_ul]:ml-4 [&_ul]:list-[circle];
+  }
 }
 
 .site-section {
