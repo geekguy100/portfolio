@@ -23,6 +23,7 @@ export function useRenderedPDF(src: string, canvas: HTMLCanvasElement | null, in
 
   // Loading the current page
   useEffect(() => {
+    if (document === undefined) return
     async function loadPageAsync() {
       setIsPageLoading(true)
       try {
@@ -45,8 +46,6 @@ export function useRenderedPDF(src: string, canvas: HTMLCanvasElement | null, in
         setIsPageLoading(false)
       }
     }
-
-    if (document === undefined) return
     loadPageAsync()
   }, [document, pageNum])
 
