@@ -9,7 +9,7 @@ export type PopupImageProps = ComponentProps<typeof Image> & { title: string; wi
 export function PopupImage(props: PopupImageProps) {
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <DialogTrigger className="mx-auto w-fit" asChild>
         <MotionDiv variants={childSlideInVariants}>
           <Image role="button" {...props} style={{ width: "auto", height: "auto" }} />
         </MotionDiv>
