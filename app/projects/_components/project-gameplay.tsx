@@ -35,7 +35,14 @@ export function ProjectGameplay({ content, title }: ProjectGameplayProps) {
 
   useEffect(() => {
     if (!api) return
-    api.on("select", () => setPage(api.selectedScrollSnap() + 1))
+    function setState() {
+      setPage(api!.selectedScrollSnap() + 1)
+    }
+
+    api.on("select", setState)
+    return () => {
+      api.off("select", setState)
+    }
   }, [api])
 
   return (
