@@ -26,31 +26,35 @@ export function ProjectGameplay({ content, title }: ProjectGameplayProps) {
   return (
     <article>
       <SectionTitle variants={childFadeInVariants}>{title ?? "Gameplay"}</SectionTitle>
-      <Carousel className="mx-auto">
-        <CarouselContent>
-          {content.map((t, i) => (
-            <CarouselItem key={i}>
-              <div className="flex h-full items-center justify-center">
-                {isUrl(t.src) && <EmbeddedGameplay {...t} />}
-                {!isUrl(t.src) && (
+      <motion.div className="mx-auto max-w-xl" variants={childFadeInVariants}>
+        <Carousel>
+          <CarouselContent>
+            {content.map((t, i) => (
+              <CarouselItem key={i}>
+                <div className="flex h-full items-center justify-center">
                   <div className="aspect-video w-125 lg:w-200">
-                    <motion.div variants={childFadeInVariants} className="relative size-full">
-                      {t.mimeType!.includes("video") ? <VideoItem item={t} /> : <ImgItem item={t} />}
-                    </motion.div>
-                    {t.caption && <p className="text-center text-sm italic">{t.caption}</p>}
+                    {isUrl(t.src) && <EmbeddedGameplay {...t} />}
+                    {!isUrl(t.src) && (
+                      <div className="flex size-full flex-col">
+                        <div className="relative size-full">
+                          {t.mimeType!.includes("video") ? <VideoItem item={t} /> : <ImgItem item={t} />}
+                        </div>
+                        {t.caption && <p className="text-center text-sm italic">{t.caption}</p>}
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        {content.length > 1 && (
-          <div className="hidden sm:block">
-            <CarouselPrevious size="icon-lg" />
-            <CarouselNext size="icon-lg" />
-          </div>
-        )}
-      </Carousel>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          {content.length > 1 && (
+            <div className="hidden sm:block">
+              <CarouselPrevious size="icon-lg" />
+              <CarouselNext size="icon-lg" />
+            </div>
+          )}
+        </Carousel>
+      </motion.div>
     </article>
   )
 }
@@ -82,7 +86,7 @@ function EmbeddedGameplay({ src, title }: ProjectGameplayProps["content"][number
       title={title}
       referrerPolicy="strict-origin-when-cross-origin"
       allowFullScreen
-      className="size-full"
+      className="mx-auto size-full"
     />
   )
 }
