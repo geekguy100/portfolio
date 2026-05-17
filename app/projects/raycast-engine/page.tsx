@@ -30,35 +30,31 @@ export default function RaycastEnginePage() {
           </Link>{" "}
           course by Pikuma.
         </ProjectDescription>
+        <ProjectDescription>
+          I think developing your own engine is important for programmers in the game development industry because it
+          provides insight into what goes on under the hood of commercial game engines.
+        </ProjectDescription>
+        <ProjectDescription>
+          Understanding C is also important for programmers because you rely less on abstractions, and that helps you
+          understand <span className="italic">how</span> the computer will be executing your program while providing
+          insight into what goes on under the hood hardware-wise.
+        </ProjectDescription>
       </ProjectIntro>
       <ProjectGameplay
+        title="Showcase"
         content={[
           {
-            src: "/ball-barrage.gif",
-            title: "Disaster Golf Gameplay Trailer",
+            src: "/js_raycasting_demo.gif",
+            title: "Prototype of raycasting engine written in JavaScript",
+            mimeType: "image/gif",
+          },
+          {
+            src: "/c_raycasting_demo.gif",
+            title: "In-progress showcase of minimap written in C",
             mimeType: "image/gif",
           },
         ]}
       />
-      <ProjectRoles title="Takeaways">
-        <ProjectRole>
-          <Responsibilities>
-            <Responsibility>
-              Hosted sprint retrospectives to discuss the most recent sprint.
-              <Responsibilities>
-                <Responsibility>
-                  I made sure that the team knew these discussions were open for anyone to provide feedback.
-                </Responsibility>
-              </Responsibilities>
-            </Responsibility>
-            <Responsibility>Verified all work meets the discussed vision we had for the game.</Responsibility>
-            <Responsibility>
-              Managed discipline leads and sub-team leads to make sure the team is not only contributing to the
-              project's creative vision but learning along the way.
-            </Responsibility>
-          </Responsibilities>
-        </ProjectRole>
-      </ProjectRoles>
     </Project>
   )
 }

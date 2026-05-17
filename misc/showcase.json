@@ -96,7 +96,7 @@
       "descriptions": [
         "An in-progress game engine written in C using OpenGL and raycasting techniques from games such as Wolfenstein 3D."
       ],
-      "img": "/out-of-service.gif",
+      "img": "/js_raycasting_demo.gif",
       "id": "raycast-engine",
       "section": "personal"
     }
