@@ -84,7 +84,15 @@ export default function PortfolioPage() {
           <ProjectRoleHeader>Notable Efforts</ProjectRoleHeader>
           <Responsibilities>
             <Responsibility>
-              Created a PDF viewer component that uses Mozilla's pdf.js under the hood.
+              Created a{" "}
+              <Link
+                className="underline"
+                target="_blank"
+                href="https://github.com/geekguy100/geekguy100.github.io/blob/main/components/pdf-viewing/pdf-viewer.tsx"
+              >
+                PDF viewer component
+              </Link>{" "}
+              that uses Mozilla's pdf.js for rendering support.
               <Responsibilities>
                 <Responsibility>
                   Built with the intention of it being able to stand alone - not tightly coupled with the portfolio
