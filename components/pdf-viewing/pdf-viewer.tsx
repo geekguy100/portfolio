@@ -53,8 +53,8 @@ export function _PdfViewer({ src, carouselProps, showPageNumber = false, canvasP
         </CarouselContent>
         <div className="mt-2 flex flex-col items-center gap-2">
           {showPageNumber && currentPage !== undefined && (
-            <p>
-              {currentPage} / {numPages}
+            <p className="text-sm">
+              [ {currentPage} / {numPages} ]
             </p>
           )}
           {props.downloadable && (
