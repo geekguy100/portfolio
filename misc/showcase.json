@@ -112,11 +112,18 @@
     {
       "title": "Peace Fighter",
       "descriptions": [
-        "My team's submission to GMTK 2023 with the theme roles reversed.",
+        "My team's submission to GMTK 2023 with the theme Roles Reversed.",
         "Scored **#774** in the creativity category out of over 6,000 entries."
       ],
-      "img": "/long-hat.png",
+      "img": "/peace-fighter-cover.png",
       "id": "peace-fighter",
+      "section": "personal"
+    },
+    {
+      "title": "Forest Foodies",
+      "descriptions": ["My team's submission to GMTK 2024 with the theme Built to Scale."],
+      "img": "/forest-foodies-cover2.png",
+      "id": "forest-foodies",
       "section": "personal"
     }
   ]
