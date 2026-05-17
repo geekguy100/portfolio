@@ -99,6 +99,15 @@
       "img": "/js_raycasting_demo.gif",
       "id": "raycast-engine",
       "section": "personal"
+    },
+    {
+      "title": "Portfolio",
+      "descriptions": [
+        "I created this portfolio using the web development skills I acquired at The Aerospace Corporation."
+      ],
+      "img": "/js_raycasting_demo.gif",
+      "id": "portfolio",
+      "section": "personal"
     }
   ]
 }
