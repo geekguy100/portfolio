@@ -14,7 +14,7 @@ import Link from "next/link"
 import JamResults from "./_images/forest-foodies-results.png"
 import { PopupImage } from "@/components/popup-image"
 import { MotionParagraph } from "@/components/motion-primitives"
-import { childFadeInVariants, childSlideInVariants } from "@/lib/animation"
+import { childFadeInVariants } from "@/lib/animation"
 
 export const metadata = getProjectMetdata("forest-foodies")
 

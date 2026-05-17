@@ -1,9 +1,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { BookIcon, HouseIcon, SatelliteIcon } from "lucide-react"
-import { ShowcasePiece } from "@/components/showcase-piece"
+import { ShowcasePiece, type ShowcasePieceProps } from "@/components/showcase-piece"
 import { content } from "@/misc/showcase.json"
-import { SteamIcon } from "@/components/brand-icons"
+import { SteamIcon } from "@/components/icons/brand-icons"
 import type { ReactNode } from "react"
+import type { ShowcasePiece as ShowcasePieceType } from "@/types"
+import { JarIcon } from "@/components/icons/lab-icons"
 
 export type Section = "university" | "aerospace" | "personal"
 export interface ProjectTabProps {
@@ -54,14 +56,15 @@ function PersonalProjects() {
 }
 
 function GeneralPiece({ section }: { section: Section }) {
-  const pieces = content
+  const pieces = (content as ShowcasePieceType[])
     .filter((piece) => piece.section === section)
-    .map((piece) => <ShowcasePiece key={piece.id} icon={getPieceIcon(piece.id)} {...piece} />)
+    .map((piece) => <ShowcasePiece key={piece.id} icon={getPieceIcon(piece)} {...piece} />)
 
   return pieces.length > 0 ? pieces : <p className="text-center">There's nothing here yet</p>
 }
 
-function getPieceIcon(id: string): ReactNode | undefined {
-  if (id !== "disastergolf") return undefined
-  return <SteamIcon />
+function getPieceIcon({ id, misc }: ShowcasePieceProps): ReactNode | undefined {
+  if (id === "disastergolf") return <SteamIcon />
+  if (misc === "gameJam") return <JarIcon />
+  return undefined
 }

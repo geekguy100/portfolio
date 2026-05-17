@@ -1,5 +1,5 @@
 "use client"
-import { SteamIcon } from "@/components/brand-icons"
+import { SteamIcon } from "@/components/icons/brand-icons"
 import { NavigationButton } from "@/components/nav-button"
 import { SectionTitle } from "@/components/section-title"
 import { childFadeInVariants } from "@/lib/animation"
