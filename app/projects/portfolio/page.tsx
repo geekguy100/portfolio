@@ -35,8 +35,16 @@ export default function PortfolioPage() {
         title="Development Progress"
         content={[
           {
-            src: "https://www.youtube.com/embed/rs9bdJmgKEg?si=adlZ4V4I9EkkdqeP",
-            title: "Disaster Golf Gameplay Trailer",
+            src: "/portfolio-dev-1.png",
+            title: "Early site development",
+            mimeType: "image/png",
+            caption: "Early site development",
+          },
+          {
+            src: "/portfolio-dev-2.png",
+            title: "Final site development",
+            mimeType: "image/png",
+            caption: "Final site development",
           },
         ]}
       />
