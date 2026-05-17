@@ -19,11 +19,11 @@ type ExternalContentItem = {
   mimeType?: never
 }
 
-export type ProjectGameplayProps = { content: ContentItem[] }
-export function ProjectGameplay({ content }: ProjectGameplayProps) {
+export type ProjectGameplayProps = { content: ContentItem[]; title?: string }
+export function ProjectGameplay({ content, title }: ProjectGameplayProps) {
   return (
     <article>
-      <SectionTitle variants={childFadeInVariants}>Gameplay</SectionTitle>
+      <SectionTitle variants={childFadeInVariants}>{title ?? "Gameplay"}</SectionTitle>
       <Carousel className="mx-auto">
         <CarouselContent>
           {content.map((t, i) => (
