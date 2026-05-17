@@ -3,14 +3,14 @@ import { SectionTitle } from "@/components/section-title"
 import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import type { ComponentPropsWithoutRef, CustomComponentPropsWithRef, PropsWithChildren } from "react"
-import { childFadeInVariants, childSlideInVariants, containerSlideInProps } from "@/lib/animation"
+import { childFadeInVariants, childSlideInVariants } from "@/lib/animation"
 import SlideInContainer from "@/components/slide-in-container"
 
 export function ProjectRoles({ title, children }: PropsWithChildren & { title?: string }) {
   return (
     <article>
       <SectionTitle>{title ?? "My Roles"}</SectionTitle>
-      <div className="flex flex-col gap-2 text-left">{children}</div>
+      <div className="flex flex-col gap-6 text-left">{children}</div>
     </article>
   )
 }
