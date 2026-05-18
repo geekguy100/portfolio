@@ -4,6 +4,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 import { SiteHeader } from "./_layout/site-header"
+import { TooltipProvider } from "@/components/ui/tooltip"
 
 const roboto = Roboto({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -24,10 +25,12 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", roboto.variable)}
     >
       <body className="m-6">
-        <ThemeProvider>
-          <SiteHeader />
-          <main>{children}</main>
-        </ThemeProvider>
+        <TooltipProvider>
+          <ThemeProvider>
+            <SiteHeader />
+            <main>{children}</main>
+          </ThemeProvider>
+        </TooltipProvider>
       </body>
     </html>
   )

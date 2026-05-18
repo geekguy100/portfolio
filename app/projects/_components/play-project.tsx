@@ -2,6 +2,7 @@
 import { SteamIcon } from "@/components/icons/brand-icons"
 import { NavigationButton } from "@/components/nav-button"
 import { SectionTitle } from "@/components/section-title"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { childFadeInVariants } from "@/lib/animation"
 import { motion } from "motion/react"
 import React from "react"
@@ -13,7 +14,14 @@ type EmbeddedDemoProps = { type: "embed"; itchLink: string; children: ReactNode 
 >
 type DownloadDemoProps = { type: "download" } & (LocalDownloadProps | SteamDownloadProps)
 type SteamDownloadProps = { steamLink: string; githubLink?: never; downloadLink?: never }
-type LocalDownloadProps = { githubLink: string; downloadLink: string; steamLink?: never }
+type LocalDownloadProps = {
+  githubLink: string
+  downloadLink: string
+  steamLink?: never
+  windowsOS?: true
+  macOS?: true
+  linuxOS?: true
+}
 
 export type PlayProjectProps = { title?: string } & (EmbeddedDemoProps | DownloadDemoProps)
 export function PlayProject({ title, ...props }: PlayProjectProps) {
@@ -31,7 +39,13 @@ function DownloadDemo(props: DownloadDemoProps) {
   return props.steamLink !== undefined ? <SteamDownload {...props} /> : <LocalDownload {...props} />
 }
 
-function LocalDownload({ downloadLink, githubLink, children }: LocalDownloadProps & { children?: ReactNode }) {
+function LocalDownload({
+  downloadLink,
+  githubLink,
+  children,
+  windowsOS = true,
+  ...props
+}: LocalDownloadProps & { children?: ReactNode }) {
   const numButtons = React.Children.count(children) + Number(downloadLink !== "") + Number(githubLink !== "")
   return (
     <motion.div
@@ -47,9 +61,20 @@ function LocalDownload({ downloadLink, githubLink, children }: LocalDownloadProp
         </NavigationButton>
       )}
       {downloadLink !== "" && (
-        <NavigationButton newTab href={downloadLink}>
-          Download
-        </NavigationButton>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <NavigationButton newTab href={downloadLink}>
+              Download
+            </NavigationButton>
+          </TooltipTrigger>
+          {(windowsOS || props.linuxOS || props.macOS) && (
+            <TooltipContent>
+              {windowsOS && <p>Windows</p>}
+              {props.macOS && <p>MacOS</p>}
+              {props.linuxOS && <p>Linux</p>}
+            </TooltipContent>
+          )}
+        </Tooltip>
       )}
       {children}
     </motion.div>
