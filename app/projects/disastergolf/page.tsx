@@ -14,6 +14,7 @@ import { SectionTitle } from "@/components/section-title"
 import { PopupImage } from "@/components/popup-image"
 import { MotionArticleContainer } from "../_components/motion-article-container"
 import { MotionPdfViewer } from "../_components/motion-pdf-viewer"
+import Link from "next/link"
 
 export const metadata = getProjectMetdata("disastergolf")
 
@@ -22,13 +23,28 @@ export default function DisasterGolfPage() {
     <Project>
       <ProjectIntro>
         <ProjectTitle>Disaster Golf</ProjectTitle>
-        <ProjectDescription>
-          Are you tired of playing golf and having to evacuate when you're given a tornado warning? In Disaster Golf,
-          disasters are here to help you play! Utilize lightning to zap the ball across the course at extraordinary
-          speeds, meteors to shoot the ball high into the sky with explosive power, and strong gusts of wind to putt the
-          golf ball closer and closer to the hole. Golf in different terrain, from the jurassic era, to lush beaches,
-          and scorching volcanoes. The world is your golf course!
-        </ProjectDescription>
+        <div className="space-y-2">
+          <ProjectDescription>
+            Are you tired of playing golf and having to evacuate when you're given a tornado warning? In Disaster Golf,
+            disasters are here to help you play! Utilize lightning to zap the ball across the course at extraordinary
+            speeds, meteors to shoot the ball high into the sky with explosive power, and strong gusts of wind to putt
+            the golf ball closer and closer to the hole. Golf in different terrain, from the jurassic era, to lush
+            beaches, and scorching volcanoes. The world is your golf course!
+          </ProjectDescription>
+          <ProjectDescription>
+            This project originally began as my class's senior captsone project, with around{" "}
+            <span className="font-bold">30 students</span> on the development team.
+          </ProjectDescription>
+          <ProjectDescription>
+            After graduation, three other classmates and I decided to add more features to the game and polish it in
+            preparation for a <span className="font-bold">release on Steam</span>. We co-founded Hippo Havoc LLC and
+            received marketing and publishing support from the late indie publisher,{" "}
+            <Link className="underline" target="_blank" href="https://www.instagram.com/voxpopgames/">
+              VoxPop Games
+            </Link>
+            .
+          </ProjectDescription>
+        </div>
       </ProjectIntro>
       <PlayProject type="download" steamLink="https://store.steampowered.com/app/2575960/Disaster_Golf/" />
       <ProjectGameplay
@@ -83,9 +99,11 @@ export default function DisasterGolfPage() {
               Overhauled project management when work was not getting completed.
               <Responsibilities>
                 <Responsibility>
-                  My efforts resulted in a steady flow of work being produced, increased communication between
-                  sub-teams, explicitly defined expectations for being a member of the project, a discipline lead, and a
-                  sub-team lead.
+                  My efforts resulted in a{" "}
+                  <span className="font-bold">
+                    steady flow of work being produced, increased communication between sub-teams, and explicitly
+                    defined expectations for being a member of the project, a discipline lead, or a sub-team lead.
+                  </span>
                 </Responsibility>
               </Responsibilities>
             </Responsibility>
