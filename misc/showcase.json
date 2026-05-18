@@ -64,7 +64,7 @@
     {
       "title": "Mystery at the Murder Motel",
       "descriptions": [
-        "A game where you play as a detective attempting to solve a mysterious murder. Features a complex dialogue system written in JSON, a journal that records clues collected throughout the game, and a custom interaction system created using the strategy pattern.",
+        "Created with the theme \"mystery\", in Mystery at the Murder Motel, you play as a detective attempting to solve a murder. Features a dialogue system supported by JSON files, a journal that records clues collected throughout the game, and a custom interaction system created using the strategy pattern.",
         "Created for CIS 497 - Unity Design Patterns for practice working with design patterns on a large-scale project."
       ],
       "img": "/mystery-motel.gif",

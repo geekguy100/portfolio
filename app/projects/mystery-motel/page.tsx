@@ -30,7 +30,7 @@ export default function MysteryMotelPage() {
             your recorded clues, accuse one and (hopefully) bring justice to the murderer.
           </ProjectDescription>
           <ProjectDescription>
-            Created for CIS 497 - Unity Design Patterns with the theme 'meaning' to practice implementing design
+            Created for CIS 497 - Unity Design Patterns with the theme "meaning" to practice implementing design
             patterns into larger projects with a team.
           </ProjectDescription>
         </div>
